@@ -1,0 +1,46 @@
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  // padding: 1rem;
+  // font-weight: bold;
+  color: white;
+  background-color: #030631;
+  padding: 1rem 16rem;
+
+
+  span {
+
+    font-family: var(--montserrat-bold, 'Montserrat-bold');
+  }
+
+  .translate {
+    gap: 1rem;
+  }
+}
+
+.cv-navbar {
+  background: transparent;
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item a {
+    text-decoration: none;
+    // color: var(--clr-primary-700, #222);
+    color: whitesmoke;
+    font-family: var(--montserrat-medium, 'Montserrat-Medium');
+    font-size: var(--fs-nl);
+    transition: color 0.2s;
+    font-size: 1rem;
+
+    &:hover {
+      color: var(--clr-primary-500, #007bff);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use 'fonts' as *;
+// @use 'colors' as *;
+// @use 'icons' as *;
+
+:root {
+
+  // Colors
+//   @each $color,
+//   $shades in $colors {
+
+//     @each $shade,
+//     $value in $shades {
+//       --clr-#{$color}-#{$shade}: #{$value};
+//     }
+//   }
+
+  // Font Famillies
+  @each $font,
+  $shades in $fonts {
+
+    @each $shade,
+    $value in $shades {
+      --#{$font}-#{$shade}: '#{$value}';
+    }
+  }
+
+  // Font Sizes
+  --fs-base: 62.5%;
+  --fs-xxl: 7rem;
+  --fs-xl: clamp(3rem, 10vw + 1rem, 10rem);
+  --fs-vl: 2.5rem;
+  --fs-l: 2rem;
+  --fs-nl: 1.7rem;
+  --fs-n: 1.5rem;
+  --fs-s: 1.3rem;
+  --fs-vs: 1rem;
+  --fs-vsl: 0.8rem;
+  --fz-default: clamp(1rem, 5vw + 1rem, 10rem);
+
+  // Container size
+  --container: calc(100% - var(--padding));
+  --container-max: 1200px;
+  --padding: 40px;
+}

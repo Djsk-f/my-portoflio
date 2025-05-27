@@ -1,0 +1,113 @@
+// .home {
+//   min-height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: var(--clr-primary-100, #383838);
+// //   padding: 2rem;
+
+//   .presentation {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     text-align: justify;
+//     // gap: 3rem;
+//     background: #fff;
+//     // border-radius: 1.5rem;
+//     // box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+//     // padding: 2.5rem 3rem;
+
+//     &__text {
+//     //   max-width: 400px;
+
+//       &--title {
+//         // font-size: var(--fs-xl, 2.5rem);
+//         font-family: var(--recoleta-bold, 'Recoleta-Bold');
+//         margin-bottom: 1rem;
+//         color: var(--clr-primary-700, #222);
+//       }
+
+//       &--description {
+//         // font-size: var(--fs-nl, 1.2rem);
+//         color: var(--clr-primary-600, #444);
+//         line-height: 1.7;
+//       }
+//     }
+
+//     &__image {
+//       img {
+//         // border-radius: 50%;
+//         box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+//         object-fit: cover;
+//         width: 100%;
+//         // width: 300px;
+//         // height: 300px;
+//       }
+//     }
+//   }
+// }
+
+// // Responsive
+// @media (max-width: 900px) {
+//   .presentation {
+//     flex-direction: column;
+//     text-align: center;
+//     // padding: 2rem 1rem;
+
+//     &__image {
+//       margin-top: 1.5rem;
+//     }
+//   }
+// }
+
+.home {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 16rem;
+
+}
+
+.presentation {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.5rem;
+
+    &__text {
+        max-width: 40%;
+        text-align: justify;
+
+        &--title {
+
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #f0efef, #0812a5);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 0.5px white;
+            // text-shadow:
+            //     -1px -1px 0 white,
+            //     1px -1px 0 white,
+            //     -1px 1px 0 white,
+            //     1px 1px 0 white;
+        }
+
+        &--name {
+
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+
+    &__image {
+
+        max-width: 50%;
+
+        img {
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./../../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-ExtraBold';
+    font-weight: bolder;
+    font-style: normal;
+    src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'),
+        url('./../../fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    font-weight: bold;
+    font-style: normal;
+    src: url('./../../fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    font-weight: 600;
+    font-style: normal;
+    src: url('./../../fonts/Montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./../../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    font-style: 300;
+    src: url('./../../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Recoleta-Regular';
+    font-style: normal;
+    src: url('./../../fonts/Recoleta/Recoleta-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Recoleta-SemiBold';
+    src: local('Recoleta SemiBold'), local('Recoleta-SemiBold'),
+        url('./../../fonts/Recoleta/Recoleta-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recoleta-Bold';
+    src: local('Recoleta Bold'), local('Recoleta-Bold'),
+        url('./../../fonts/Recoleta/Recoleta-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+$fonts: (
+    montserrat: (regular: 'Montserrat-Regular',
+        extrabold: 'Montserrat-ExtraBold',
+        bold: 'Montserrat-Bold',
+        semibold: 'Montserrat-SemiBold',
+        medium: 'Montserrat-Medium',
+        light: 'Montserrat-Light'
+    ),
+    recoleta: (regular: 'Recoleta-Regular',
+        semibold: 'Recoleta-SemiBold',
+        bold: 'Recoleta-Bold',
+    ))
