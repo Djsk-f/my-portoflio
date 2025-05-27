@@ -1,11 +1,13 @@
 "use client"
 
-import type { IconButtonProps, SpanProps } from "@chakra-ui/react"
-import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react"
+import type { IconButtonProps, TextProps  } from "@chakra-ui/react"
+import { IconButton, Skeleton, Text } from "@chakra-ui/react"
 import { ThemeProvider, useTheme } from "next-themes"
 import type { ThemeProviderProps } from "next-themes"
 import * as React from "react"
-import { LuMoon, LuSun } from "react-icons/lu"
+import { LuMoon, LuSun } from "react-icons/lu";
+import { useEffect, useState } from 'react';
+
 
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
@@ -74,10 +76,10 @@ export const ColorModeButton = React.forwardRef<
   )
 })
 
-export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
+export const LightMode = React.forwardRef<HTMLElement, TextProps >(
   function LightMode(props, ref) {
     return (
-      <Span
+      <Text
         color="fg"
         display="contents"
         className="chakra-theme light"
@@ -90,10 +92,10 @@ export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   },
 )
 
-export const DarkMode = React.forwardRef<HTMLSpanElement, SpanProps>(
+export const DarkMode = React.forwardRef<HTMLElement, TextProps >(
   function DarkMode(props, ref) {
     return (
-      <Span
+      <Text
         color="fg"
         display="contents"
         className="chakra-theme dark"
@@ -105,3 +107,22 @@ export const DarkMode = React.forwardRef<HTMLSpanElement, SpanProps>(
     )
   },
 )
+
+
+export default function ClientOnly({
+  children,
+  fallback = null,
+}: {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}) {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return <>{fallback}</>;
+
+  return <>{children}</>;
+}
