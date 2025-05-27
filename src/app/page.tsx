@@ -1,4 +1,6 @@
 import About from "@/components/about";
+import Projects from "@/components/project";
+import SendMailModal from "@/components/sendMail";
 import Skills from "@/components/skills";
 
 export default function Home() {
@@ -15,6 +17,11 @@ export default function Home() {
               développement front-end et back-end, et je suis toujours à la recherche
               de nouveaux défis.
             </p>
+
+            <div className="presentation__text--links">
+              <SendMailModal />
+            </div>
+
           </div>
           <div className="presentation__image">
             <img
@@ -29,6 +36,7 @@ export default function Home() {
 
       <About />
       <Skills />
+      <Projects />
     </div>
   );
 }

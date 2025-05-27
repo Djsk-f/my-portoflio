@@ -1,0 +1,12 @@
+.contact-footer {
+  background: #030631;
+  color: #fff;
+  font-family: var(--montserrat-medium, 'Montserrat-Medium');
+
+  a {
+    transition: color 0.2s;
+    &:hover {
+      color: #00e0ff;
+    }
+  }
+}

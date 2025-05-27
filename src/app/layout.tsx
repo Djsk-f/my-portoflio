@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import { Suspense } from "react";
 import Loading from "./page/loading";
 import ProviderChakra from "@/components/Provider";
+import Contact from "@/components/contact";
 // import { ColorModeProvider } from "@/components/ui/color-mode";
 
 // const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({
             <body className="container">
               <Header />
               {children}
+              <Contact/>
             </body>
           </Suspense>
         {/* </ColorModeProvider> */}
