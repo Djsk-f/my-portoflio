@@ -6,7 +6,7 @@ import { FaLinkedin, FaFacebook } from "react-icons/fa";
 export default function Contact() {
   return (
     <footer className="contact-footer">
-      <Box py={6} px={{ base: 4, md: 16 }} bg="#030631" color="white">
+      <Box py={6} bg="#030631" color="white">
         <Flex
           direction={{ base: "column", md: "row" }}
           align="center"
