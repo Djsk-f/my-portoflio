@@ -1,4 +1,23 @@
+// _project.scss - Version responsive
 #projects {
+  padding: 3rem 13rem;
 
-    padding: 3rem 13rem;
+  @media (max-width: 1200px) {
+    padding: 2.5rem 8rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 2rem 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+  }
 }
+
+#title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }

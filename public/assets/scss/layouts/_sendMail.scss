@@ -1,5 +1,6 @@
+// _sendMail.scss - Version responsive améliorée
 .btn-send {
-  background-color: white; /* fond blanc */
+  background-color: white;
   border: none;
   border-radius: 5px;
   padding: 1rem 2rem;
@@ -7,6 +8,17 @@
   width: 100%;
   text-align: center;
   margin: 2rem 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+  }
 }
 
 .btn-text {
@@ -15,6 +27,11 @@
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  padding: 16px;
   font-weight: 900;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 }

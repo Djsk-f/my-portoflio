@@ -1,14 +1,43 @@
+// _about.scss - Version responsive améliorée
 .about {
   background: linear-gradient(120deg, #030631 80%, #0812a5 100%);
   padding: 3rem 16rem;
   border-radius: 1.5rem;
   margin: 3rem 0;
   color: #fff;
-  box-shadow: 0 4px 24px rgba(8,18,165,0.08);
+  box-shadow: 0 4px 24px rgba(8, 18, 165, 0.08);
+  position: relative;
+
+  @media (max-width: 1200px) {
+    padding: 2.5rem 8rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+    margin: 1.5rem 0;
+  }
 
   &__title {
+    font-size: 4rem;
+    font-weight: 900;
     margin-bottom: 2rem;
     letter-spacing: 1px;
+    position: relative;
+
+    @media (max-width: 900px) {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
 
     &::before {
       content: '';
@@ -20,6 +49,11 @@
       position: absolute;
       left: 0;
       bottom: -8px;
+
+      @media (max-width: 480px) {
+        width: 24px;
+        height: 3px;
+      }
     }
   }
 
@@ -30,9 +64,27 @@
     text-align: justify;
     color: #e0e6f7;
 
+    @media (max-width: 900px) {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+
     p {
       margin-bottom: 1.2rem;
+
+      @media (max-width: 480px) {
+        margin-bottom: 1rem;
+      }
     }
+
     strong {
       color: #00e0ff;
       font-weight: 700;
@@ -44,19 +96,5 @@
     color: #00e0ff;
     font-size: 1.1em;
     margin-right: 0.3em;
-  }
-}
-
-@media (max-width: 900px) {
-  .about {
-    padding: 2rem 1.5rem;
-    border-radius: 1rem;
-    margin: 2rem 0;
-    &__title {
-      font-size: 1.5rem;
-    }
-    &__content {
-      font-size: 1rem;
-    }
   }
 }

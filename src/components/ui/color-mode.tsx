@@ -1,15 +1,16 @@
 "use client"
 
-import type { IconButtonProps, TextProps  } from "@chakra-ui/react"
-import { IconButton, Skeleton, Text } from "@chakra-ui/react"
+import type { TextProps } from "@chakra-ui/react"
+import { Text, Button, Select, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react"
 import { ThemeProvider, useTheme } from "next-themes"
 import type { ThemeProviderProps } from "next-themes"
 import * as React from "react"
-import { LuMoon, LuSun } from "react-icons/lu";
-import { useEffect, useState } from 'react';
+import { LuMoon, LuSun } from "react-icons/lu"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
-
-export interface ColorModeProviderProps extends ThemeProviderProps {}
+// ---------------- PROVIDER ----------------
+export interface ColorModeProviderProps extends ThemeProviderProps { }
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
@@ -17,6 +18,7 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
   )
 }
 
+// ---------------- HOOKS ----------------
 export type ColorMode = "light" | "dark"
 
 export interface UseColorModeReturn {
@@ -42,41 +44,42 @@ export function useColorModeValue<T>(light: T, dark: T) {
   return colorMode === "dark" ? dark : light
 }
 
+// ---------------- ICON ----------------
 export function ColorModeIcon() {
   const { colorMode } = useColorMode()
   return colorMode === "dark" ? <LuMoon /> : <LuSun />
 }
 
-interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> {}
+// ---------------- SELECT (DARK/LIGHT) ----------------
+const MotionSelect = motion(Select)
 
-export const ColorModeButton = React.forwardRef<
-  HTMLButtonElement,
-  ColorModeButtonProps
->(function ColorModeButton(props, ref) {
-  const { toggleColorMode } = useColorMode()
+export function ThemeToggleSelect({ isScrolled }: { isScrolled: boolean }) {
+  const { colorMode, setColorMode } = useColorMode()
+
   return (
-    <ClientOnly fallback={<Skeleton boxSize="8" />}>
-      <IconButton
-        onClick={toggleColorMode}
-        variant="ghost"
-        aria-label="Toggle color mode"
-        size="sm"
-        ref={ref}
-        {...props}
-        css={{
-          _icon: {
-            width: "5",
-            height: "5",
-          },
-        }}
-      >
-        <ColorModeIcon />
-      </IconButton>
+    <ClientOnly>
+      <Menu>
+        <MenuButton as={Button} 
+        variant="outline"
+        border={"none"}
+        >
+          {colorMode === "light" ? <LuSun color="white" /> : <LuMoon color="white" />}
+        </MenuButton>
+        <MenuList>
+          <MenuItem color="black" icon={<LuSun />} onClick={() => setColorMode("light")}>
+            Light
+          </MenuItem>
+          <MenuItem color="black" icon={<LuMoon />} onClick={() => setColorMode("dark")}>
+            Dark
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </ClientOnly>
   )
-})
+}
 
-export const LightMode = React.forwardRef<HTMLElement, TextProps >(
+// ---------------- LIGHT/DARK WRAPPERS ----------------
+export const LightMode = React.forwardRef<HTMLElement, TextProps>(
   function LightMode(props, ref) {
     return (
       <Text
@@ -92,7 +95,7 @@ export const LightMode = React.forwardRef<HTMLElement, TextProps >(
   },
 )
 
-export const DarkMode = React.forwardRef<HTMLElement, TextProps >(
+export const DarkMode = React.forwardRef<HTMLElement, TextProps>(
   function DarkMode(props, ref) {
     return (
       <Text
@@ -108,21 +111,21 @@ export const DarkMode = React.forwardRef<HTMLElement, TextProps >(
   },
 )
 
-
+// ---------------- CLIENT ONLY ----------------
 export default function ClientOnly({
   children,
   fallback = null,
 }: {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
+  children: React.ReactNode
+  fallback?: React.ReactNode
 }) {
-  const [hasMounted, setHasMounted] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false)
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
 
-  if (!hasMounted) return <>{fallback}</>;
+  if (!hasMounted) return <>{fallback}</>
 
-  return <>{children}</>;
+  return <>{children}</>
 }

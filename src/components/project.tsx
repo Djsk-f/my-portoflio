@@ -44,12 +44,33 @@ const projects = [
       "Plateforme e-commerce web pour la gestion des commandes, du catalogue produits et des paiements. Stack utilisée : Angular, Node.js, MongoDB.",
     stack: ["Angular", "Node.js", "MongoDB"],
   },
+    {
+    title: "Mon Panier",
+    role: "Full-Stack Developer",
+    description:
+      "Plateforme e-commerce web pour la gestion des commandes, du catalogue produits et des paiements. Stack utilisée : Angular, Node.js, MongoDB.",
+    stack: ["Angular", "Node.js", "MongoDB"],
+  },
+    {
+    title: "Mon Panier",
+    role: "Full-Stack Developer",
+    description:
+      "Plateforme e-commerce web pour la gestion des commandes, du catalogue produits et des paiements. Stack utilisée : Angular, Node.js, MongoDB.",
+    stack: ["Angular", "Node.js", "MongoDB"],
+  },
+    {
+    title: "Mon Panier",
+    role: "Full-Stack Developer",
+    description:
+      "Plateforme e-commerce web pour la gestion des commandes, du catalogue produits et des paiements. Stack utilisée : Angular, Node.js, MongoDB.",
+    stack: ["Angular", "Node.js", "MongoDB"],
+  },
 ];
 
 export default function Projects() {
   return (
     <Box as="section" id="projects" py={12} px={{ base: 4, md: 16 }}>
-      <Heading as="h1" size="xl" mb={8} color={useColorModeValue("blue.900", "blue.200")}>
+      <Heading as="h1" id="title" size="xl" mb={8} color={useColorModeValue("blue.900", "blue.200")}>
         Projets réalisés
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
@@ -58,7 +79,7 @@ export default function Projects() {
             key={project.title}
             bg={useColorModeValue("white", "gray.800")}
             boxShadow="md"
-            borderRadius="lg"
+            borderRadius="16px 0 16px 0"
             p={6}
             transition="transform 0.2s"
             _hover={{ transform: "translateY(-6px)", boxShadow: "xl" }}

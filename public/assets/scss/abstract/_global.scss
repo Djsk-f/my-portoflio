@@ -20,12 +20,23 @@
 }
 
 h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
     margin-bottom: 1rem;
     background: linear-gradient(90deg, #eee8ec, #020a7a);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 0.5px white;
     text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px white;
+
+    @media (max-width: 900px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.5rem;
+        -webkit-text-stroke: 0.3px white;
+    }
 }

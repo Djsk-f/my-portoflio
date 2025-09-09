@@ -6,8 +6,37 @@
 
   a {
     transition: color 0.2s;
+
     &:hover {
       color: #00e0ff;
     }
+  }
+}
+
+.contact-footer {
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .contact-footer {
+    padding: 0 13rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-footer {
+    padding: 0 13rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-footer {
+    padding: 0 13rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact-footer {
+    padding: 0 13rem;
   }
 }

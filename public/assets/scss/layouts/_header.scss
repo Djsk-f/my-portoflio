@@ -1,25 +1,99 @@
 .cv-header {
+  position: fixed;
+  top: 0; // ✅ fixé en haut de la page
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
-  // padding: 1rem;
-  // font-weight: bold;
+  align-items: center;
   color: white;
-  background-color: #030631;
+  background-color: transparent;
   padding: 1rem 16rem;
+  transition: all 0.3s ease-in-out;
 
+  // Animation de transformation lors du scroll
+  &.scrolled {
+    padding: 0.75rem 16rem;
+    background-color: #030631;
+    // backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 
-  span {
+    .myName {
+      font-size: 1.1rem;
+    }
 
-    font-family: var(--montserrat-bold, 'Montserrat-bold');
+    .cv-navbar__item a {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 1rem 8rem;
+
+    &.scrolled {
+      padding: 0.75rem 8rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &.scrolled {
+      padding: 0.75rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+
+    &.scrolled {
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  .myName {
+    font-family: var(--montserrat-bold, "Montserrat-bold");
+    transition: font-size 0.3s ease-in-out;
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 
   .translate {
     gap: 1rem;
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Ajout d'un padding-top au body pour compenser le header fixe
+body {
+  padding-top: 80px; // Ajustez selon la hauteur de votre header
+
+  @media (max-width: 900px) {
+    padding-top: 120px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 140px;
   }
 }
 
 .cv-navbar {
   background: transparent;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   &__list {
     display: flex;
@@ -28,19 +102,38 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @media (max-width: 900px) {
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   &__item a {
     text-decoration: none;
-    // color: var(--clr-primary-700, #222);
     color: whitesmoke;
-    font-family: var(--montserrat-medium, 'Montserrat-Medium');
-    font-size: var(--fs-nl);
-    transition: color 0.2s;
+    font-family: var(--montserrat-medium, "Montserrat-Medium");
     font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
 
     &:hover {
       color: var(--clr-primary-500, #007bff);
+      transform: translateY(-2px);
     }
   }
 }
