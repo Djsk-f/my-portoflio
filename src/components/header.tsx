@@ -1,88 +1,22 @@
 "use client";
 
-import { Button } from "@chakra-ui/react";
-import { motion, Variants } from "framer-motion";
+import { headerVariants, itemVariants, navItemVariants, scrollVariants } from "../app/animations/header.animation";
+import { ThemeToggleSelect } from "./ui/color-mode";
 import { useState, useEffect } from "react";
-import { ThemeToggleSelect } from "./ui/color-mode"; // ✅ importe ton bouton
+import { motion } from "framer-motion";
 
-// MotionButton pour pouvoir animer le Chakra Button
-const MotionButton = motion(Button);
-
-// Animation variants
-const headerVariants: Variants = {
-  // hidden: { y: -100, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { y: -20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
-
-const navItemVariants: Variants = {
-  hidden: { y: -20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-  hover: {
-    y: -3,
-    transition: {
-      duration: 0.2,
-      ease: "easeInOut",
-    },
-  },
-};
-
-// Variantes pour l'animation du header lors du scroll
-const scrollVariants: Variants = {
-  top: {
-    backgroundColor: "transparent",
-    filter: "blur(0px)",
-    boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
-    transition: {
-      duration: 0.3,
-      ease: "easeInOut",
-    },
-  },
-  scrolled: {
-    // backgroundColor: "rgba(3, 6, 49, 0.95)",
-    backgroundColor: "#030631",
-    // filter: "blur(5px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    transition: {
-      duration: 0.3,
-      ease: "easeInOut",
-    },
-  },
-};
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setIsScrolled(currentScrollY > 50);
-    };
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    setScrollY(currentScrollY);
+    setIsScrolled(currentScrollY > 50);
+  };
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -92,9 +26,6 @@ export default function Header() {
       className={`cv-header ${isScrolled ? "scrolled" : ""}`}
       animate={isScrolled ? "scrolled" : "top"}
       variants={{ ...headerVariants, ...scrollVariants }}
-      // style={{
-      //   transform: `translateY(${Math.min(scrollY * -0.1, 0)}px)`,
-      // }}
     >
       <motion.span
         className="myName"
@@ -171,7 +102,6 @@ export default function Header() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
-          {/* ✅ Remplace ton MotionButton Français par le ThemeToggleButton */}
           <ThemeToggleSelect isScrolled={isScrolled} />
         </motion.div>
       </motion.div>

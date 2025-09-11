@@ -1,94 +1,38 @@
 "use client";
 
+import { containerVariants, imageVariants, textVariants, titleVariants } from "./animations/home.animations";
+import { uploadMyCv } from "./commonService/commonservice";
+import SendMailModal from "@/components/sendMail";
+import Projects from "@/components/project";
+import Skills from "@/components/skills";
 import { motion } from "framer-motion";
 import About from "@/components/about";
-import Projects from "@/components/project";
-import SendMailModal from "@/components/sendMail";
-import Skills from "@/components/skills";
 
-// Animations variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-      duration: 0.6
-    }
-  }
-};
-
-const textVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30 
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
-    }
-  }
-};
-
-const imageVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: 50,
-    scale: 0.9
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
-
-const titleVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20 
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut"
-    }
-  }
-};
 
 export default function Home() {
   return (
     <div className="container">
       <div className="home">
-        <motion.div 
+        <motion.div
           className="presentation"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           <motion.div className="presentation__text" variants={textVariants}>
-            <motion.h2 
+            <motion.h2
               className="presentation__text--name"
               variants={titleVariants}
             >
               Fidele Loffou
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="presentation__text--title"
               variants={titleVariants}
-            > 
+            >
               Developpeur Web <span> Full-Stack </span>
             </motion.div>
-            <motion.p 
+            <motion.p
               className="presentation__text--description"
               variants={textVariants}
             >
@@ -98,18 +42,20 @@ export default function Home() {
               de nouveaux défis.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="presentation__text--links"
               variants={textVariants}
             >
               <SendMailModal />
+              <motion.button onClick={uploadMyCv} className="presentation__text--myCV" variants={imageVariants}>
+                Mon CV
+              </motion.button>
             </motion.div>
           </motion.div>
-
-          <motion.div 
+          <motion.div
             className="presentation__image"
             variants={imageVariants}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               transition: { duration: 0.3 }
             }}
