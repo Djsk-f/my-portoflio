@@ -16,8 +16,8 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
 import "@/../public/assets/scss/layouts/_sendMail.scss";
+import { useRef, useState } from "react";
 
 export default function SendMailModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();

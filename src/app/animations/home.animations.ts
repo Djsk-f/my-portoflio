@@ -55,3 +55,22 @@ export const titleVariants = {
     }
   }
 };
+
+export const circularImageVariants = {
+  hidden: {
+    scale: 0,
+    rotate: -180,
+    opacity: 0
+  },
+  visible: {
+    scale: 1,
+    rotate: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      duration: 0.8
+    }
+  }
+};

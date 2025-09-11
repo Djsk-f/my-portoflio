@@ -1,7 +1,7 @@
 "use client";
 
-import { containerVariants, imageVariants, textVariants, titleVariants } from "./animations/home.animations";
-import { uploadMyCv } from "./commonService/commonservice";
+import { containerVariants, imageVariants, circularImageVariants, textVariants, titleVariants } from "./animations/home.animations";
+import { uploadMyCv } from "./services/commonservice";
 import SendMailModal from "@/components/sendMail";
 import Projects from "@/components/project";
 import Skills from "@/components/skills";

@@ -10,7 +10,6 @@ import {
   useColorModeValue,
   Icon,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import { projects } from "../app/mocks/projects.mock";
 import { JSX } from "react/jsx-runtime";
 
