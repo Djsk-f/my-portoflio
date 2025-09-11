@@ -20,19 +20,23 @@
     &--links {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 0.5rem;
       text-align: justify;
       margin-top: 1rem;
     }
 
     &--myCV {
-      font-weight: 900;
       color: #fff;
       border-radius: 8px;
-      border: 5px solid #0812a5;
+      border: 4px solid #0812a5;
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      margin: 1.8rem 0;
+      font-size: 1.5rem;
+      // padding: 16px;
+      font-weight: 900;
+      // padding: 1rem 2rem;
       transition: background-color 0.3s ease, color 0.3s ease;
 
       &:hover {
@@ -135,6 +139,7 @@
 
       @media (max-width: 900px) {
         font-size: 1.5rem;
+        visibility: hidden;
       }
 
       @media (max-width: 480px) {
@@ -153,7 +158,7 @@
     max-width: 50%;
 
     @media (max-width: 768px) {
-      max-width: 70%;
+      max-width: 100%;
       margin: auto;
       margin-left: 0px !important;
       order: 2;
