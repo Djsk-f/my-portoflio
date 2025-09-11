@@ -30,17 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ProviderChakra>
-        {/* <ColorModeProvider> */}
+      <body className="container">
+        <ProviderChakra>
+          {/* <ColorModeProvider> */}
           <Suspense fallback={<Loading />}>
-            <body className="container">
-              <Header />
-              {children}
-              <Contact/>
-            </body>
+            <Header />
+            {children}
+            <Contact />
           </Suspense>
-        {/* </ColorModeProvider> */}
-      </ProviderChakra>
+          {/* </ColorModeProvider> */}
+        </ProviderChakra>
+      </body>
     </html>
   );
 }
