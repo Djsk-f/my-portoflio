@@ -9,6 +9,7 @@ import {
   Link,
   useColorModeValue,
   Icon,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { projects } from "../app/mocks/projects.mock";
 import { JSX } from "react/jsx-runtime";
@@ -20,7 +21,7 @@ export default function Projects(): JSX.Element {
       <Heading as="h1" id="title" size="xl" mb={8} color={useColorModeValue("blue.900", "blue.200")}>
         Projets réalisés
       </Heading>
-      <div>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
         {projects.map((project) => (
           <Box
             key={project.title}
@@ -66,7 +67,7 @@ export default function Projects(): JSX.Element {
             </Stack>
           </Box>
         ))}
-      </div>
+      </SimpleGrid>
     </Box>
   );
 }
