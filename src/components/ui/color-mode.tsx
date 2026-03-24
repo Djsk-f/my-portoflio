@@ -14,7 +14,7 @@ export interface ColorModeProviderProps extends ThemeProviderProps { }
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange {...props} />
+    <ThemeProvider attribute="data-theme" disableTransitionOnChange {...props} />
   )
 }
 
@@ -61,9 +61,11 @@ export function ThemeToggleSelect({ isScrolled }: { isScrolled: boolean }) {
       <Menu>
         <MenuButton as={Button} 
         variant="outline"
-        border={"none"}
+        border="1px solid var(--border-tech)"
+        _hover={{ borderColor: "var(--accent-primary)", boxShadow: "0 0 10px var(--accent-glow)" }}
+        bg="transparent"
         >
-          {colorMode === "light" ? <LuSun color="white" /> : <LuMoon color="white" />}
+          {colorMode === "light" ? <LuSun color="var(--text-primary)" /> : <LuMoon color="var(--text-primary)" />}
         </MenuButton>
         <MenuList>
           <MenuItem color="black" icon={<LuSun />} onClick={() => setColorMode("light")}>

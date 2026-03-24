@@ -1,0 +1,132 @@
+@mixin line-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px);
+  background-size: 100% 32px;
+}
+
+@mixin alive-background {
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    @include line-grid;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent-glow), transparent 40%);
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  /* Drifting Orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: drift linear infinite alternate;
+
+    &-1 {
+      width: 40vw;
+      height: 40vw;
+      background: var(--orb-1);
+      top: -10%;
+      left: -10%;
+      animation-duration: 25s;
+    }
+
+    &-2 {
+      width: 35vw;
+      height: 35vw;
+      background: var(--orb-2);
+      bottom: -10%;
+      right: -10%;
+      animation-duration: 30s;
+      animation-delay: -5s;
+    }
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(50px, 50px) scale(1.1);
+  }
+}
+
+@mixin soft-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  // border: 1px solid var(--glass-border);
+  // box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 60px -10px var(--accent-glow);
+    transform: translateY(-5px);
+  }
+}
+
+@mixin morphing-blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: morph 15s ease-in-out infinite;
+}
+
+@keyframes morph {
+
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+@mixin tech-card {
+  @include soft-glass;
+}
+
+@mixin premium-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@mixin hitech-text {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to bottom right, var(--text-primary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}

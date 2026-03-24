@@ -1,73 +1,50 @@
 "use client";
 
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-  Badge,
-  Link,
-  useColorModeValue,
-  Icon,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { projects } from "../app/mocks/projects.mock";
-import { JSX } from "react/jsx-runtime";
 
-
-export default function Projects(): JSX.Element {
+export default function Projects() {
   return (
-    <Box as="section" id="projects" py={12} px={{ base: 4, md: 16 }}>
-      <Heading as="h1" id="title" size="xl" mb={8} color={useColorModeValue("blue.900", "blue.200")}>
-        Projets réalisés
-      </Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
-        {projects.map((project) => (
-          <Box
+    <div id="projects" className="projects-section">
+      <h2 className="section-title">
+        <span className="title-number">04</span> PROJETS
+      </h2>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <motion.div
             key={project.title}
-            bg='transparent'
-            p={6}
-            transition="transform 0.2s"
-            _hover={{ transform: "translateY(-6px)", boxShadow: "xl" }}
-            className="box"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="project-card"
           >
-            <img className="projects__image-container" src={project.image} alt={project.title} />
-            <Stack spacing={3}>
-              <Heading as="h3" size="md" color="blue.700">
-                {project.title}
-              </Heading>
-              <Badge colorScheme="blue" w="fit-content" px={2} py={1} borderRadius="md">
-                {project.role}
-              </Badge>
-              <Text>{project.description}</Text>
-              <Stack direction="row" spacing={2} mt={2}>
-                {project.stack.map((tech) => (
-                  <Badge key={tech} colorScheme="purple" variant="subtle">
-                    {tech}
-                  </Badge>
-                ))}
-              </Stack>
-              {project.link && (
-                <Link
-                  href={project.link.url}
-                  isExternal
-                  color="blue.500"
-                  fontWeight="bold"
-                  display="flex"
-                  alignItems="center"
-                  mt={2}
-                  _hover={{ textDecoration: "underline" }}
+            <div className="project-image-box">
+              <img src={project.image} alt={project.title} />
+              <div className="project-overlay">
+                <a 
+                  href={project.link?.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-primary"
                 >
-                  {project.link.icon && (
-                    <Icon as={project.link.icon} boxSize={5} mr={2} />
-                  )}
-                  {project.link.label}
-                </Link>
-              )}
-            </Stack>
-          </Box>
+                  DE_PLOY_VIEW
+                </a>
+              </div>
+            </div>
+            
+            <div className="project-info">
+              <div className="project-tags">
+                {project.stack.slice(0, 3).map(tech => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+            </div>
+          </motion.div>
         ))}
-      </SimpleGrid>
-    </Box>
+      </div>
+    </div>
   );
 }

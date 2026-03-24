@@ -1,42 +1,61 @@
-.contact-footer {
-  background: #030631;
-  color: #fff;
-  font-family: var(--montserrat-medium, 'Montserrat-Medium');
-  padding: 0 13rem;
-
-  a {
-    transition: color 0.2s;
-
-    &:hover {
-      color: #00e0ff;
-    }
-  }
-}
+@use '../abstract' as *;
 
 .contact-footer {
-  padding: 0 1rem;
+  padding: 6rem 0 3rem;
+  border-top: 1px solid var(--border-tech);
 }
 
-@media (min-width: 640px) {
-  .contact-footer {
-    padding: 0 13rem;
+.footer-content {
+  @include tech-card;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // Align with margin line
+  gap: 2.5rem;
+  padding: 5rem 4rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.footer-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+}
+
+.footer-tagline {
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  max-width: 400px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.social-link {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: all 0.3s;
+  
+  &:hover {
+    color: var(--accent-primary);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 8px var(--accent-glow));
   }
 }
 
-@media (min-width: 768px) {
-  .contact-footer {
-    padding: 0 13rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .contact-footer {
-    padding: 0 13rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .contact-footer {
-    padding: 0 13rem;
-  }
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-tech);
+  width: 100%;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }

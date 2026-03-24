@@ -1,44 +1,48 @@
 @use 'fonts' as *;
-// @use 'colors' as *;
-// @use 'icons' as *;
 
 :root {
+  /* Premium Hi-Tech Light (Blueprint) */
+  --bg-primary: #f0f4f8;
+  --bg-secondary: #ffffff;
+  --accent-primary: #1d4ed8;
+  --accent-secondary: #3b82f6;
+  --accent-glow: rgba(29, 78, 216, 0.12);
+  --text-primary: #020617;
+  --text-secondary: #334155;
+  
+  --grid-color: rgba(29, 78, 216, 0.05);
+  --grid-line: rgba(29, 78, 216, 0.15);
+  --border-tech: rgba(15, 23, 42, 0.08);
+  --orb-1: rgba(37, 99, 235, 0.05);
+  --orb-2: rgba(99, 102, 241, 0.05);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.06);
+  --glass-blur: 16px;
 
-  // Colors
-//   @each $color,
-//   $shades in $colors {
-
-//     @each $shade,
-//     $value in $shades {
-//       --clr-#{$color}-#{$shade}: #{$value};
-//     }
-//   }
-
-  // Font Famillies
-  @each $font,
-  $shades in $fonts {
-
-    @each $shade,
-    $value in $shades {
-      --#{$font}-#{$shade}: '#{$value}';
-    }
-  }
-
-  // Font Sizes
   --fs-base: 62.5%;
-  --fs-xxl: 7rem;
-  --fs-xl: clamp(3rem, 10vw + 1rem, 10rem);
-  --fs-vl: 2.5rem;
-  --fs-l: 2rem;
-  --fs-nl: 1.7rem;
-  --fs-n: 1.5rem;
-  --fs-s: 1.3rem;
-  --fs-vs: 1rem;
-  --fs-vsl: 0.8rem;
-  --fz-default: clamp(1rem, 5vw + 1rem, 10rem);
-
-  // Container size
-  --container: calc(100% - var(--padding));
-  --container-max: 1200px;
   --padding: 40px;
+
+  --font-hitech: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme='dark'] {
+  /* Premium Hi-Tech Dark (Deep Carbon) */
+  --bg-primary: #010309;
+  --bg-secondary: #050914;
+  --accent-primary: #00e5ff;
+  --accent-secondary: #a855f7;
+  --accent-glow: rgba(0, 229, 255, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #a1a1aa;
+
+  --grid-color: rgba(0, 229, 255, 0.04);
+  --grid-line: rgba(0, 229, 255, 0.15);
+  --border-tech: rgba(0, 229, 255, 0.12);
+  --orb-1: rgba(0, 229, 255, 0.12);
+  --orb-2: rgba(168, 85, 247, 0.12);
+  
+  --glass-bg: rgba(5, 9, 20, 0.8);
+  --glass-border: rgba(0, 229, 255, 0.15);
 }

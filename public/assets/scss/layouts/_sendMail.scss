@@ -1,37 +1,47 @@
-// _sendMail.scss - Version responsive améliorée
-.btn-send {
-  background-color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  margin: 2rem 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+@use '../abstract' as *;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+.send-mail-container {
+  padding: 1.5rem;
+}
 
-  @media (max-width: 480px) {
-    padding: 0.8rem 1.5rem;
-    margin: 1.5rem 0;
+.form-group {
+  margin-bottom: 0;
+  
+  label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
   }
 }
 
-.btn-text {
-  background: linear-gradient(90deg, #8b1e67, #020a7a);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.5rem;
-  padding: 16px;
-  font-weight: 900;
-
-  @media (max-width: 480px) {
-    font-size: 1rem;
+.tech-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-tech);
+  padding: 1rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.3s;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
   }
+}
+
+.tech-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.chars-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-align: right;
+  margin-top: 0.5rem;
 }

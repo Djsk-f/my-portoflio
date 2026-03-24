@@ -1,0 +1,80 @@
+@use '../abstract' as *;
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 1rem 0;
+}
+
+.experience-item {
+  display: flex;
+  gap: 3rem;
+  position: relative;
+
+  .exp-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.5rem;
+
+    .exp-dot {
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--accent-primary);
+      border-radius: 50%;
+      background: var(--bg-primary);
+      box-shadow: 0 0 10px var(--accent-glow);
+      z-index: 2;
+    }
+
+    .exp-line {
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--border-tech), transparent);
+      margin-top: 0.5rem;
+    }
+  }
+
+  .exp-content {
+    flex: 1;
+
+    .exp-header {
+      margin-bottom: 1rem;
+
+      .exp-period {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.8rem;
+        color: var(--accent-primary);
+        background: var(--accent-glow);
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .exp-role {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .exp-company {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+    }
+
+    .exp-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+  }
+
+  &:last-child .exp-line {
+    display: none;
+  }
+}

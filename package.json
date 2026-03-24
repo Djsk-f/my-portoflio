@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^2.10.8",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",
     "lucide-react": "^0.544.0",
@@ -26,6 +27,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sass": "^1.43.1",
+    "lenis": "^1.3.18",
+    "sass-loader": "^16.0.7",
     "typescript": "^5"
   }
 }
