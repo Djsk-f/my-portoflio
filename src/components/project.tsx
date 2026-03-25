@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { projects } from "../app/mocks/projects.mock";
 import { useTranslations } from "next-intl";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Projects({ isDetailed = false }: { isDetailed?: boolean }) {
   const t = useTranslations("Projects");
 
   const getProjectKey = (title: string) => {
-    if (title.includes("CADYST")) return "cadyst";
-    if (title.includes("BCI MOBILE")) return "bci_mobile";
-    if (title.includes("CIMENCAM")) return "cimencam";
-    if (title.includes("BCI NET")) return "bci_net";
+    const t = title.toUpperCase();
+    if (t.includes("CADYST")) return "cadyst";
+    if (t.includes("FLY-BANKING")) return "fly";
+    if (t.includes("PANIER")) return "panier";
     return "";
   };
 
@@ -21,6 +22,9 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
       <div className="projects-grid">
         {projects.map((project, index) => {
           const key = getProjectKey(project.title);
+          const roleText = key ? t(`items.${key}.role`) : project.role;
+          const descText = key ? t(`items.${key}.desc`) : project.description;
+
           return (
             <motion.div
               key={project.title}
@@ -33,17 +37,19 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
               <div className="project-image-box">
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
-                  <a 
-                    href={project.link?.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn-primary"
-                  >
-                    {t("deploy")}
-                  </a>
+                  {project.link?.url && (
+                    <a
+                      href={project.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                    >
+                      <FaGithub /> {t("viewGithub")}
+                    </a>
+                  )}
                 </div>
               </div>
-              
+
               <div className="project-info">
                 <div className="project-tags">
                   {project.stack.slice(0, 3).map(tech => (
@@ -51,7 +57,19 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
                   ))}
                 </div>
                 <h3 className="project-title">{key ? t(`items.${key}.title`) : project.title}</h3>
-                <p className="project-description">{key ? t(`items.${key}.desc`) : project.description}</p>
+                {roleText && <p className="project-role">{roleText}</p>}
+                <p className="project-description">{descText}</p>
+                {project.link?.url && (
+                  <a
+                    href={project.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <FaGithub size={14} /> GitHub
+                    <FaExternalLinkAlt size={10} />
+                  </a>
+                )}
               </div>
             </motion.div>
           );

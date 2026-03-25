@@ -10,7 +10,7 @@
   "Home": {
     "status": "[LIVE] SYSTEM STATUS_OPTIMIZED",
     "name": "Fidèle Loffou",
-    "title": "Full-Stack Architect",
+    "title": "Full-Stack Developer",
     "subtitle": "Engineering high-precision digital ecosystems with a focus on impact, elegance, and technical excellence.",
     "deployResume": "DEPLOY RESUME",
     "aria": {
@@ -67,21 +67,28 @@
     "stackTitle": "TECH STACK_",
     "present": "PRESENT",
     "londo": {
-      "desc": "Designing scalable architectures and integrating complex financial ecosystems.",
+      "desc": "Development and maintenance of high-performance web and mobile applications.",
       "highlights": [
-        "Architecture and development of a highly secure financial management platform.",
-        "Migration from a monolithic infrastructure to microservices with NestJS and Docker.",
-        "Optimization of PostgreSQL queries reducing response time by 40%.",
-        "Implementation of rigorous E2E tests ensuring 99.9% production stability."
+        "Design and optimization of APIs to improve service responsiveness.",
+        "Implementation of unit and functional tests to ensure software quality.",
+        "Continuous improvement of development processes within the technical team.",
+        "Code review and technical mentorship."
       ]
     },
     "inno": {
-      "desc": "Optimizing e-commerce flows and developing intelligent management tools.",
+      "desc": "Project Manager and Trainer specializing in web and e-learning solutions.",
       "highlights": [
-        "Development of a multilingual e-commerce solution supporting 50k+ active users.",
-        "Integration of complex payment gateways and real-time inventory management.",
-        "Frontend performance improvement (SEO & Core Web Vitals) with React and SSR.",
-        "Close collaboration with UI/UX teams for user-centered interfaces."
+        "Management of a school report management system development.",
+        "Analysis and design of tailored e-learning platforms and showcase sites.",
+        "Training teams on modern tech stacks and digital tools.",
+        "Agile project management using Scrum."
+      ]
+    },
+    "minpostel": {
+      "desc": "Management tool development for the Ministry (Internship).",
+      "highlights": [
+        "Digitization of registrations for 'Vacances 100% TIC' national program.",
+        "Design of an automated administrative leave management system."
       ]
     }
   },
@@ -92,22 +99,23 @@
     "details": "DETAILS_VIEW",
     "exploration": "[DASHBOARD_EXPLORATION_MODE]",
     "deploy": "DE_PLOY_VIEW",
+    "role": "ROLE",
+    "viewGithub": "VIEW ON GITHUB",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
-        "desc": "Development of a web and mobile application for the management of internal flour bag orders at PASTA. UI made with Ionic & Angular-ionic, secure API in Nest.js, MongoDB database."
+        "role": "Full-Stack Developer — Web & Mobile",
+        "desc": "Centralized management of internal flour bag orders for PASTA. Web, mobile app, and secure APIs with an intuitive interface. Available on Play Store."
       },
-      "bci_mobile": {
-        "title": "BCI MOBILE",
-        "desc": "Mobile platform for managing bank operations for BCI clients. Made with Node.js, MongoDB, and Angular-ionic."
+      "fly": {
+        "title": "FLY-BANKING & OPÉRATION VISA",
+        "role": "Full-Stack Developer — Fintech",
+        "desc": "Management system for bank limits for international transactions. Robust and secure APIs."
       },
-      "cimencam": {
-        "title": "My CIMENCAM",
-        "desc": "Purchase platform for cement bags for CIMENCAM clients. Stacks used: Angular, Node.js, MongoDB."
-      },
-      "bci_net": {
-        "title": "BCI NET",
-        "desc": "Management platform for BCI bank operations. Stacks used: Angular, Node.js, MongoDB."
+      "panier": {
+        "title": "MON PANIER",
+        "role": "Full-Stack Developer — B2C E-commerce",
+        "desc": "Full e-commerce platform. Dynamic catalog, advanced cart system, and payment tracking."
       }
     }
   },

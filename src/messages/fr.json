@@ -10,7 +10,7 @@
   "Home": {
     "status": "[LIVE] STATUT SYSTÈME_OPTIMISÉ",
     "name": "Fidèle Loffou",
-    "title": "Architecte Full-Stack",
+    "title": "Développeur Full-Stack",
     "subtitle": "Ingénierie d'écosystèmes numériques de haute précision mettant l'accent sur l'impact, l'élégance et l'excellence technique.",
     "deployResume": "DÉPLOYER LE CV",
     "aria": {
@@ -67,21 +67,28 @@
     "stackTitle": "STACK TECHNIQUE_",
     "present": "PRÉSENT",
     "londo": {
-      "desc": "Conception d'architectures scalables et intégration d'écosystèmes financiers complexes.",
+      "desc": "Développement et maintenance d'applications web et mobiles de haute performance.",
       "highlights": [
-        "Architecture et développement d'une plateforme de gestion financière hautement sécurisée.",
-        "Migration d'une infrastructure monolithique vers des microservices avec NestJS et Docker.",
-        "Optimisation des requêtes PostgreSQL réduisant le temps de réponse de 40%.",
-        "Mise en place de tests E2E rigoureux assurant une stabilité de production de 99.9%."
+        "Conception et optimisation d'APIs pour améliorer la réactivité des services.",
+        "Mise en place de tests unitaires et fonctionnels pour garantir la qualité logicielle.",
+        "Amélioration continue des processus de développement en équipe technique.",
+        "Revue de code et Mentorat technique."
       ]
     },
     "inno": {
-      "desc": "Optimisation de flux e-commerce et développement d'outils de gestion intelligents.",
+      "desc": "Chef de projet et Formateur spécialisé dans les solutions web et e-learning.",
       "highlights": [
-        "Développement d'une solution e-commerce multilingue supportant 50k+ utilisateurs actifs.",
-        "Intégration de passerelles de paiement complexes et gestion d'inventaire temps réel.",
-        "Amélioration des performances frontend (SEO & Core Web Vitals) avec React et SSR.",
-        "Collaboration étroite avec les équipes UI/UX pour des interfaces centrées utilisateur."
+        "Pilotage du développement d'une application de gestion académique (bulletins).",
+        "Analyse et conception de plateformes e-learning et sites vitrines sur mesure.",
+        "Formation d'équipes sur les piles technologiques modernes et outils numériques.",
+        "Gestion agile de projets utilisant Scrum."
+      ]
+    },
+    "minpostel": {
+      "desc": "Développement d'outils administratifs pour le ministère (Stage).",
+      "highlights": [
+        "Informatisation des inscriptions au programme national 'Vacances 100% TIC'.",
+        "Conception d'un système de gestion automatisée des congés administratifs."
       ]
     }
   },
@@ -92,22 +99,23 @@
     "details": "DÉTAILS_VIEW",
     "exploration": "[DASHBOARD_EXPLORATION_MODE]",
     "deploy": "DE_PLOY_VIEW",
+    "role": "RÔLE",
+    "viewGithub": "VOIR SUR GITHUB",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
-        "desc": "Développement d'une application web et mobile pour la gestion des commandes internes de sacs de farine chez PASTA. UI réalisée avec Ionic & Angular-ionic, API sécurisée en Nest.js, base de données MongoDB."
+        "role": "Développeur Full-Stack — Web & Mobile",
+        "desc": "Gestion centralisée des commandes internes de sacs de farine pour PASTA. App web, mobile et APIs sécurisées avec une interface intuitive. Disponible sur Play Store."
       },
-      "bci_mobile": {
-        "title": "BCI MOBILE",
-        "desc": "Plateforme mobile pour la gestion des opérations bancaires des clients de la BCI. Réalisé avec Node.js, MongoDB et Angular-ionic."
+      "fly": {
+        "title": "FLY-BANKING & OPÉRATION VISA",
+        "role": "Développeur Full-Stack — Fintech",
+        "desc": "Système de gestion des plafonds bancaires pour transactions internationales hors zone CEMAC. APIs robustes et sécurisées."
       },
-      "cimencam": {
-        "title": "My CIMENCAM",
-        "desc": "Plateforme d'achats de sacs de ciment pour les clients de l'entreprise CIMENCAM. Stacks utilisées : Angular, Node.js, MongoDB."
-      },
-      "bci_net": {
-        "title": "BCI NET",
-        "desc": "Plateforme de gestion des opérations bancaires de la BCI. Stacks utilisées : Angular, Node.js, MongoDB."
+      "panier": {
+        "title": "MON PANIER",
+        "role": "Développeur Full-Stack — B2C E-commerce",
+        "desc": "Plateforme complète de vente en ligne. Catalogue dynamique, système de panier avancé et suivi des paiements."
       }
     }
   },

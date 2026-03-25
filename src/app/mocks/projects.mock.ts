@@ -4,34 +4,25 @@ export const projects: Project[] = [
   {
     title: "ClICK CADYST",
     role: "Full-Stack Developer",
-    description:
-      "Développement d'une application web et mobile pour la gestion des commandes internes de sacs de farine chez PASTA. UI réalisée avec Ionic & Angular-ionic, API sécurisée en Nest.js, base de données MongoDB.",
-    stack: ["Ionic", "Angular-ionic", "Node.js", "MongoDB"],
+    description: "Application de gestion des commandes de sacs de farine pour l'entreprise PASTA. Développement en full-stack avec intégration d'API sécurisées.",
+    stack: ["Ionic", "Angular", "NestJS", "MongoDB"],
     image: "/assets/images/cadyst_mobile.png",
+    link: { url: "https://play.google.com/store/apps/details?id=com.clickcadyst.mobile", label: "Play Store" },
   },
   {
-    title: "BCI MOBILE",
+    title: "Fly-Banking & Opération Visa",
     role: "Full-Stack Developer",
-    description:
-      "Plateforme mobile pour la gestion des operations bancaires des clients de la BCI. Réalisé avec Node.js, MongoDB, et Angular-ionic.",
-    stack: ["Nest.js", "MongoDB", "Angular-ionic"],
-    image: "/assets/images/bci_mobile.png",
+    description: "Gestion des demandes d'augmentation des plafonds bancaires pour les clients effectuant des transactions hors zone CEMAC. APIs robustes et sécurisées.",
+    stack: ["Angular", "Node.js", "Express.js", "MySQL"],
+    image: "/assets/images/bci_mobile.png", // Assuming this image is relevant for banking
+    link: { url: "https://github.com/fidele007", label: "GitHub" },
   },
   {
-    title: "My CIMENCAM",
+    title: "Mon Panier",
     role: "Full-Stack Developer",
-    description:
-      "Plateforme de d'achats des sacs de ciment pour les clients de l'entreprise CIMENCAM. Stacks utilisées : Angular, Node.js, MongoDB.",
-    stack: ["Angular", "Nest.js", "MongoDB"],
-    image: "/assets/images/cimencam.png",
+    description: "Plateforme e-commerce complète avec catalogue dynamique, panier et suivi de paiements.",
+    stack: ["React", "Next.js", "Node.js", "MongoDB"],
+    image: "/assets/images/cimencam.png", // Using existing e-commerce image
+    link: { url: "https://github.com/fidele007", label: "GitHub" },
   },
-  {
-    title: "BCI NET",
-    role: "Full-Stack Developer",
-    description:
-      "Plateforme de gestion des opérations bancaires de la BCI. Stacks utilisées : Angular, Node.js, MongoDB.",
-    stack: ["Angular", "Node.js", "MongoDB"],
-    image: "/assets/images/bcinet.png",
-  },
-
 ];

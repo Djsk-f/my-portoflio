@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { FiCheck } from "react-icons/fi";
 
 export default function Experience({ isDetailed = false }: { isDetailed?: boolean }) {
   const t = useTranslations("Experience");
@@ -7,15 +8,24 @@ export default function Experience({ isDetailed = false }: { isDetailed?: boolea
   const experiences = [
     {
       company: "Londo Technology",
-      role: "Full-Stack Developer",
-      period: `2023 - ${t("present")}`,
+      role: "Développeur Web Full-Stack",
+      period: `2024 - ${t("present")}`,
       description: t("londo.desc"),
+      highlights: t.raw("londo.highlights") as string[],
     },
     {
       company: "INNO-SOFT",
-      role: "Full-Stack Developer",
-      period: "2021 - 2023",
+      role: "Développeur Full-Stack / Formateur",
+      period: "2023 - 2024",
       description: t("inno.desc"),
+      highlights: t.raw("inno.highlights") as string[],
+    },
+    {
+      company: "MINPOSTEL-EST",
+      role: t("present") === "PRESENT" ? "Intern" : "Stagiaire",
+      period: "2021",
+      description: t("minpostel.desc"),
+      highlights: t.raw("minpostel.highlights") as string[],
     },
   ];
 
@@ -45,6 +55,16 @@ export default function Experience({ isDetailed = false }: { isDetailed?: boolea
                 <h4 className="exp-company">{exp.company}</h4>
               </div>
               <p className="exp-description">{exp.description}</p>
+              {exp.highlights && exp.highlights.length > 0 && (
+                <ul className="exp-highlights">
+                  {exp.highlights.slice(0, 3).map((item, i) => (
+                    <li key={i} className="exp-highlight-item">
+                      <FiCheck className="exp-check" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </motion.div>
         ))}

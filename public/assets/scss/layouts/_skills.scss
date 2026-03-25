@@ -16,6 +16,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
+
+    .skill-name-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
 
     .skill-name {
       font-weight: 600;
@@ -24,11 +31,20 @@
       font-size: 0.9rem;
     }
 
+    .skill-category {
+      font-size: 0.65rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+
     .skill-percentage {
       font-size: 0.8rem;
       color: var(--accent-primary);
       opacity: 0.8;
       font-family: 'JetBrains Mono', monospace;
+      flex-shrink: 0;
     }
   }
 
