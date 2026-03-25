@@ -1,0 +1,65 @@
+@use '../abstract' as *;
+
+.contact-page {
+  @include alive-background;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+
+  .contact-detailed {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 4rem;
+
+      h1 {
+        @include hitech-text;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+    }
+
+    .contact-card {
+      @include tech-card;
+      padding: 3.5rem;
+      border: 1px solid var(--border-tech);
+      background: rgba(var(--bg-secondary), 0.5);
+      
+      .status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-mono);
+        color: var(--accent-primary);
+        font-size: 0.8rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        letter-spacing: 0.2em;
+
+        &::before {
+          content: '';
+          width: 8px;
+          height: 8px;
+          background: var(--accent-primary);
+          border-radius: 50%;
+          box-shadow: 0 0 10px var(--accent-primary);
+          animation: pulse 2s infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
+}

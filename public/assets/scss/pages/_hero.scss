@@ -16,6 +16,7 @@
       grid-template-columns: 1fr;
       text-align: center;
       gap: 3rem;
+      padding-top: 100px;
     }
   }
 
@@ -33,6 +34,15 @@
       border-radius: 100px;
       margin-bottom: 2rem;
       border: 1px solid var(--border-tech);
+      max-width: 100%;
+      overflow: hidden;
+      
+      @media (max-width: 480px) {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.9rem;
+        letter-spacing: 0;
+        gap: 0.5rem;
+      }
       
       .pulse {
         width: 8px;
@@ -41,12 +51,13 @@
         border-radius: 50%;
         box-shadow: 0 0 10px var(--accent-primary);
         animation: blink 1.5s infinite;
+        flex-shrink: 0;
       }
     }
 
     h1 {
-      font-size: clamp(3.5rem, 8vw, 6rem);
-      line-height: 0.9;
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1.1;
       font-weight: 900;
       letter-spacing: -0.05em;
       margin-bottom: 2rem;
@@ -56,6 +67,7 @@
         display: block;
         background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
@@ -66,7 +78,26 @@
       line-height: 1.6;
       margin-bottom: 4rem;
       max-width: 550px;
-      @media (max-width: 1024px) { margin: 0 auto 3rem; }
+      @media (max-width: 1024px) { 
+        margin: 0 auto 3rem; 
+        font-size: 1.1rem;
+      }
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1.5rem;
+      @media (max-width: 1024px) {
+        justify-content: center;
+      }
+      @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 1rem;
+      }
     }
   }
 
@@ -86,6 +117,11 @@
       @media (max-width: 640px) {
         width: 300px;
         height: 300px;
+      }
+
+      @media (max-width: 375px) {
+        width: 240px;
+        height: 240px;
       }
     }
 
@@ -145,7 +181,16 @@
   cursor: pointer;
   box-shadow: 0 10px 30px var(--accent-glow);
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
   
+  @media (max-width: 480px) {
+    padding: 0.85rem 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px var(--accent-glow);
@@ -163,6 +208,15 @@
   border: 1px solid var(--border-tech);
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    padding: 0.85rem 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+  }
   
   &:hover {
     background: var(--accent-glow);

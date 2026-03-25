@@ -25,6 +25,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1024px) {
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 1.5rem;
+    }
   }
 
   .logo {
@@ -33,6 +41,10 @@
     letter-spacing: -0.05em;
     color: var(--text-primary);
     cursor: pointer;
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
 
     .dot {
       color: var(--accent-primary);
@@ -78,30 +90,112 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      gap: 0.35rem;
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 2px;
+    }
+
+    &.active {
+      span {
+        background: var(--accent-primary);
+        
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transform: translateX(10px);
+        }
+        &:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
   }
 }
 
 .mobile-nav {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: var(--bg-primary);
-  z-index: 999;
+  z-index: 9999; // Ensure it's above everything
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  backdrop-filter: blur(20px);
+
+  @include alive-background;
+  backdrop-filter: blur(20px);
+
+  // Custom opacity for the grid/bg effects in the menu
+  &::before, &::after {
+    opacity: 0.1 !important;
+  }
 
   ul {
     list-style: none;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+
+    li {
+      overflow: hidden;
+    }
 
     a {
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 2.5rem;
+      font-weight: 900;
       color: var(--text-primary);
+      text-transform: uppercase;
+      font-family: var(--font-hitech);
+      letter-spacing: -0.02em;
+      display: block;
+      transition: all 0.4s ease;
+
+      &.active {
+        color: var(--accent-primary);
+        text-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 }

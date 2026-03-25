@@ -1,0 +1,77 @@
+@use '../abstract' as *;
+
+.about-page {
+  @include alive-background;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+
+  .about-detailed {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .detailed-header {
+      margin-bottom: 4rem;
+      text-align: left;
+      
+      h1 {
+        @include hitech-text;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .mission-philosophy {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+
+      .info-card {
+        @include tech-card;
+        padding: 2.5rem;
+        border: 1px solid var(--border-tech);
+
+        h3 {
+          font-family: var(--font-mono);
+          color: var(--accent-primary);
+          font-size: 1.25rem;
+          margin-bottom: 1.5rem;
+          letter-spacing: 0.1em;
+        }
+
+        p {
+          color: var(--text-secondary);
+          line-height: 1.8;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .journey-section {
+      margin-top: 5rem;
+      @include tech-card;
+      padding: 3rem;
+      background: rgba(var(--bg-secondary), 0.3);
+
+      h3 {
+        @include hitech-text;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .journey-text {
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        line-height: 1.8;
+        
+        p {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}

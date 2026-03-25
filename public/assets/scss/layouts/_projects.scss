@@ -2,33 +2,46 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 0.5rem 0;
+  align-items: stretch;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 .project-card {
-  @include tech-card;
-  padding: 0; // Images take full width
+  @include soft-glass;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden; // Clip image to card border-radius
   transition: all 0.4s ease;
+  height: 100%; // Fill grid cell height
+
+  // Override soft-glass hover to avoid layout shift inside bento
+  &:hover {
+    transform: none;
+    box-shadow: 0 8px 32px var(--accent-glow);
+    border-color: var(--accent-primary);
+  }
 
   .project-image-box {
     position: relative;
     height: 200px;
     overflow: hidden;
     background: var(--bg-primary);
+    flex-shrink: 0;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
+      display: block;
     }
 
     .project-overlay {
@@ -45,7 +58,10 @@
   }
 
   .project-info {
-    padding: 2rem 0 1rem 0; // No side padding needed due to parent bento-item padding
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
     .project-tags {
       display: flex;
@@ -60,26 +76,29 @@
         background: var(--accent-glow);
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
+        border: 1px solid var(--border-tech);
       }
     }
 
     .project-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 0.75rem;
+      line-height: 1.3;
     }
 
     .project-description {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.65;
+      flex: 1;
     }
   }
 
   &:hover {
     .project-image-box img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     .project-overlay {
       opacity: 1;

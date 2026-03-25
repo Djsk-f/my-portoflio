@@ -1,0 +1,96 @@
+@use '../abstract' as *;
+
+.skills-page {
+  @include alive-background;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+
+  .skills-detailed {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h1 {
+      @include hitech-text;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 4rem;
+    }
+
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 6rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .category-card {
+        @include tech-card;
+        padding: 2.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 768px) {
+          padding: 1.5rem;
+        }
+
+        .cat-header {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          margin-bottom: 1.5rem;
+
+          .cat-icon {
+            padding: 0.75rem;
+            background: var(--accent-glow);
+            border-radius: 12px;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          h3 {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+          }
+        }
+
+        .cat-desc {
+          color: var(--text-secondary);
+          margin-bottom: 2rem;
+          flex-grow: 1;
+          line-height: 1.6;
+        }
+
+        .cat-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+
+          .tech-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-tech);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+
+            &:hover {
+              border-color: var(--accent-primary);
+              color: var(--accent-primary);
+              background: var(--accent-glow);
+            }
+          }
+        }
+      }
+    }
+  }
+}

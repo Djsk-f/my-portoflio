@@ -9,7 +9,6 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Button,
   FormControl,
   FormLabel,
   Input,
@@ -20,8 +19,10 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { useTranslations } from "next-intl";
 
 export default function SendMailModal() {
+  const t = useTranslations("Contact.modal");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [formData, setFormData] = useState({
     name: "",
@@ -53,8 +54,8 @@ export default function SendMailModal() {
       );
 
       toast({
-        title: "Message envoyé !",
-        description: "Merci pour votre message, je vous répondrai dès que possible.",
+        title: t("success"),
+        description: t("successDesc"),
         status: "success",
         duration: 5000,
         isClosable: true,
@@ -65,8 +66,8 @@ export default function SendMailModal() {
       onClose();
     } catch (error) {
       toast({
-        title: "Erreur",
-        description: "Désolé, une erreur est survenue lors de l'envoi du message.",
+        title: t("error"),
+        description: t("errorDesc"),
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -80,7 +81,7 @@ export default function SendMailModal() {
   return (
     <>
       <button onClick={onOpen} className="btn-primary">
-        Me contacter
+        {t("title")}
       </button>
 
       <Modal 
@@ -99,7 +100,7 @@ export default function SendMailModal() {
           className="tech-card"
         >
           <ModalHeader fontSize="xl" fontWeight="800" fontFamily="'JetBrains Mono', monospace">
-            ENVOYER UN MESSAGE
+            {t("title")}
           </ModalHeader>
           <ModalCloseButton />
           
@@ -107,7 +108,7 @@ export default function SendMailModal() {
             <form id="contact-form" onSubmit={handleSubmit}>
               <VStack spacing={4}>
                 <div className="form-group w-full">
-                  <label htmlFor="name">Nom</label>
+                  <label htmlFor="name">{t("labelName")}</label>
                   <input
                     id="name"
                     name="name"
@@ -116,12 +117,12 @@ export default function SendMailModal() {
                     value={formData.name}
                     onChange={handleInputChange}
                     className="tech-input"
-                    placeholder="Votre nom"
+                    placeholder={t("placeholderName")}
                   />
                 </div>
 
                 <div className="form-group w-full">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">{t("labelEmail")}</label>
                   <input
                     id="email"
                     name="email"
@@ -130,12 +131,12 @@ export default function SendMailModal() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="tech-input"
-                    placeholder="votre@email.com"
+                    placeholder={t("placeholderEmail")}
                   />
                 </div>
 
                 <div className="form-group w-full">
-                  <label htmlFor="message">Message</label>
+                  <label htmlFor="message">{t("labelMessage")}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -143,7 +144,7 @@ export default function SendMailModal() {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="tech-input tech-textarea"
-                    placeholder="Comment puis-je vous aider ?"
+                    placeholder={t("placeholderMessage")}
                   />
                   <div className="chars-count">
                     {formData.message.length} chars
@@ -161,7 +162,7 @@ export default function SendMailModal() {
               className="btn-primary"
               style={{ width: '100%' }}
             >
-              {isSending ? "ENVOI EN COURS..." : "TRANSMETTRE LE MESSAGE"}
+              {isSending ? t("sending") : t("submit")}
             </button>
           </ModalFooter>
         </ModalContent>

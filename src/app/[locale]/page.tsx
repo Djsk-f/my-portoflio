@@ -2,17 +2,21 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Code2, Cpu, Database, Zap } from "lucide-react";
+import { Code2, Cpu, Database, Zap, Plus } from "lucide-react";
+import { Link } from "@/i18n/routing";
 import About from "@/components/about";
 import Skills from "@/components/skills";
 import Projects from "@/components/project";
 import Experience from "@/components/experience";
 import SendMailModal from "@/components/sendMail";
-import { uploadMyCv } from "./services/commonservice";
+import { uploadMyCv } from "../services/commonservice";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const { scrollY } = useScroll();
   const [mousePos, setMousePos] = React.useState({ x: 50, y: 50 });
+  const [isMobile, setIsMobile] = React.useState(false);
+  const t = useTranslations("Home");
 
   // Parallax Transfroms
   const backgroundY = useTransform(scrollY, [0, 500], [0, 50]);
@@ -34,8 +38,18 @@ export default function Home() {
         y: (e.clientY / window.innerHeight) * 100,
       });
     };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    handleResize(); // Initial check
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -71,23 +85,22 @@ export default function Home() {
               className="hero__text"
             >
               <div className="badge">
-                <span className="pulse"></span> [LIVE] SYSTEM STATUS_OPTIMIZED
+                <span className="pulse"></span> {t("status")}
               </div>
               
               <h1 className="hitech-title">
-                <span className="name">Fidèle Loffou</span> <br />
-                <span className="gradient-text">Full-Stack Architect</span>
+                <span className="name">{t("name")}</span> <br />
+                <span className="gradient-text">{t("title")}</span>
               </h1>
               
               <p>
-                Engineering high-precision digital ecosystems with a focus on impact, 
-                elegance, and technical excellence.
+                {t("subtitle")}
               </p>
 
               <div className="hero__actions">
                 <SendMailModal />
                 <button onClick={uploadMyCv} className="btn-secondary">
-                  DE_PLOY RESUME
+                  {t("deployResume")}
                 </button>
               </div>
             </motion.div>
@@ -100,7 +113,7 @@ export default function Home() {
             >
               <div className="profile-container">
                 <div className="profile-blob">
-                  <img src="/assets/images/fidele.jpg" alt="Fidèle Loffou" />
+                  <img src="/assets/images/fidele.jpg" alt={t("name")} />
                 </div>
                 {/* Tech Ring Decoration */}
                 <div className="tech-ring"></div>
@@ -116,25 +129,34 @@ export default function Home() {
         <div className="bento-grid">
           {/* About - Slow Parallax Up */}
           <motion.div 
-            style={{ y: bentoY1 }}
+            style={{ y: isMobile ? 0 : bentoY1 }}
             className="bento-item bento-about"
           >
+            <Link href="/about" className="explore-btn" aria-label={t("aria.about")}>
+              <Plus size={20} />
+            </Link>
             <About />
           </motion.div>
           
           {/* Skills - Subtle Parallax Up */}
           <motion.div 
-            style={{ y: bentoY2 }}
+            style={{ y: isMobile ? 0 : bentoY2 }}
             className="bento-item bento-skills"
           >
+            <Link href="/skills" className="explore-btn" aria-label={t("aria.skills")}>
+              <Plus size={20} />
+            </Link>
             <Skills />
           </motion.div>
 
           {/* Experience - Medium Parallax Up */}
           <motion.div 
-            style={{ y: bentoY3 }}
+            style={{ y: isMobile ? 0 : bentoY3 }}
             className="bento-item bento-experience"
           >
+            <Link href="/experience" className="explore-btn" aria-label={t("aria.experience")}>
+              <Plus size={20} />
+            </Link>
             <Experience />
           </motion.div>
           
@@ -142,6 +164,9 @@ export default function Home() {
           <motion.div 
             className="bento-item bento-projects"
           >
+            <Link href="/projects" className="explore-btn" aria-label={t("aria.projects")}>
+              <Plus size={20} />
+            </Link>
             <Projects />
           </motion.div>
         </div>

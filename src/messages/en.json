@@ -1,0 +1,139 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Home": {
+    "status": "[LIVE] SYSTEM STATUS_OPTIMIZED",
+    "name": "Fidèle Loffou",
+    "title": "Full-Stack Architect",
+    "subtitle": "Engineering high-precision digital ecosystems with a focus on impact, elegance, and technical excellence.",
+    "deployResume": "DEPLOY RESUME",
+    "aria": {
+      "about": "Learn more about me",
+      "skills": "See all my skills",
+      "experience": "View my complete journey",
+      "projects": "Discover all my projects"
+    }
+  },
+  "About": {
+    "title": "ABOUT ME",
+    "missionTitle": "MY MISSION_",
+    "missionDesc": "Transforming complex ideas into intuitive and high-performance digital products. My mission is to combine the art of design with the rigor of engineering to create experiences that leave a lasting impression and truly serve their users.",
+    "philTitle": "TECH_PHILOSOPHY",
+    "philDesc": "I believe in clean, tested, and maintainable code. Architecture should not be an obstacle to speed, but rather the engine of controlled scalability. Permanent focus on performance (Core Web Vitals) and accessibility.",
+    "journeyTitle": "MY JOURNEY_LOG",
+    "journeyDesc1": "Passionate about computer science from a young age, I quickly oriented my path towards modern web development. My time at INNO-SOFT allowed me to understand the critical challenges of large-scale e-commerce.",
+    "journeyDesc2": "Today at Londo Technology, I push the boundaries of TypeScript and Full-Stack architecture to build robust solutions that meet the strictest industry standards.",
+    "bio": {
+      "hello": "Hello!",
+      "intro": "My name is Fidèle Loffou, a Full-Stack Web Developer passionate about creating high-precision digital solutions.",
+      "detail1": "Anchored in a culture of technical excellence, I support my clients towards robust architectures and exceptional interfaces.",
+      "detail2": "Expertise forged within demanding ecosystems like INNO-SOFT and Londo Technology."
+    },
+    "stats": {
+      "years": "YEARS OF EXP",
+      "projects": "PROJECTS_DELIVERED",
+      "tech": "TECH_EXPERTISE"
+    }
+  },
+  "Skills": {
+    "title": "TECHNICAL ARSENAL",
+    "expertise": "EXPERTISE",
+    "statsTitle": "[SYSTEM_MASTERY_STATS]",
+    "categories": {
+      "fe": {
+        "title": "FRONTEND_CORE",
+        "desc": "Creating reactive interfaces and immersive user experiences with attention to detail."
+      },
+      "be": {
+        "title": "BACKEND_LOGIC",
+        "desc": "Designing robust APIs, managing scalable databases, and complex business logic."
+      },
+      "devops": {
+        "title": "TOOLS_DEV_OPS",
+        "desc": "Automation, continuous deployment, and isolated development environments for maximum productivity."
+      }
+    }
+  },
+  "Experience": {
+    "title": "PROFESSIONAL JOURNEY",
+    "logTitle": "[SYSTEM_HISTORY_LOG]",
+    "highlightsTitle": "KEY ACHIEVEMENTS_",
+    "stackTitle": "TECH STACK_",
+    "present": "PRESENT",
+    "londo": {
+      "desc": "Designing scalable architectures and integrating complex financial ecosystems.",
+      "highlights": [
+        "Architecture and development of a highly secure financial management platform.",
+        "Migration from a monolithic infrastructure to microservices with NestJS and Docker.",
+        "Optimization of PostgreSQL queries reducing response time by 40%.",
+        "Implementation of rigorous E2E tests ensuring 99.9% production stability."
+      ]
+    },
+    "inno": {
+      "desc": "Optimizing e-commerce flows and developing intelligent management tools.",
+      "highlights": [
+        "Development of a multilingual e-commerce solution supporting 50k+ active users.",
+        "Integration of complex payment gateways and real-time inventory management.",
+        "Frontend performance improvement (SEO & Core Web Vitals) with React and SSR.",
+        "Close collaboration with UI/UX teams for user-centered interfaces."
+      ]
+    }
+  },
+  "Projects": {
+    "title": "COMPLETED PROJECTS",
+    "subtitle": "A selection of my most significant work, ranging from complex banking platforms to innovative e-commerce solutions. Each project is proof of commitment to quality and performance.",
+    "label": "SELECTED_PROJECT",
+    "details": "DETAILS_VIEW",
+    "exploration": "[DASHBOARD_EXPLORATION_MODE]",
+    "deploy": "DE_PLOY_VIEW",
+    "items": {
+      "cadyst": {
+        "title": "CLICK CADYST",
+        "desc": "Development of a web and mobile application for the management of internal flour bag orders at PASTA. UI made with Ionic & Angular-ionic, secure API in Nest.js, MongoDB database."
+      },
+      "bci_mobile": {
+        "title": "BCI MOBILE",
+        "desc": "Mobile platform for managing bank operations for BCI clients. Made with Node.js, MongoDB, and Angular-ionic."
+      },
+      "cimencam": {
+        "title": "My CIMENCAM",
+        "desc": "Purchase platform for cement bags for CIMENCAM clients. Stacks used: Angular, Node.js, MongoDB."
+      },
+      "bci_net": {
+        "title": "BCI NET",
+        "desc": "Management platform for BCI bank operations. Stacks used: Angular, Node.js, MongoDB."
+      }
+    }
+  },
+  "Contact": {
+    "title": "GET IN TOUCH",
+    "headerPrefix": "GET IN",
+    "headerAccent": "TOUCH",
+    "status": "ONLINE_AVAILABLE",
+    "modal": {
+      "title": "SEND A MESSAGE",
+      "labelName": "Name",
+      "placeholderName": "Your name",
+      "labelEmail": "Email",
+      "placeholderEmail": "your@email.com",
+      "labelMessage": "Message",
+      "placeholderMessage": "How can I help you?",
+      "submit": "TRANSMIT MESSAGE",
+      "sending": "SENDING...",
+      "success": "Message sent!",
+      "successDesc": "Thank you for your message, I will get back to you as soon as possible.",
+      "error": "Error",
+      "errorDesc": "Sorry, an error occurred while sending the message."
+    }
+  },
+  "Footer": {
+    "tagline": "Building the future, one line of code at a time.",
+    "rights": "All rights reserved."
+  }
+}

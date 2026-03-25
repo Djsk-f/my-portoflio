@@ -1,0 +1,139 @@
+{
+  "Navigation": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "Home": {
+    "status": "[LIVE] STATUT SYSTÈME_OPTIMISÉ",
+    "name": "Fidèle Loffou",
+    "title": "Architecte Full-Stack",
+    "subtitle": "Ingénierie d'écosystèmes numériques de haute précision mettant l'accent sur l'impact, l'élégance et l'excellence technique.",
+    "deployResume": "DÉPLOYER LE CV",
+    "aria": {
+      "about": "En savoir plus sur moi",
+      "skills": "Voir toutes mes compétences",
+      "experience": "Voir mon parcours complet",
+      "projects": "Découvrir tous mes projets"
+    }
+  },
+  "About": {
+    "title": "À PROPOS DE MOI",
+    "missionTitle": "MA MISSION_",
+    "missionDesc": "Transformer des idées complexes en produits numériques intuitifs et performants. Ma mission est d'allier l'art du design à la rigueur de l'ingénierie pour créer des expériences qui marquent les esprits et servent réellement leurs utilisateurs.",
+    "philTitle": "PHILOSOPHIE_TECH",
+    "philDesc": "Je crois en un code propre, testé et maintenable. L'architecture ne doit pas être un obstacle à la rapidité, mais au contraire le moteur de la scalabilité contrôlée. Focus permanent sur la performance (Core Web Vitals) et l'accessibilité.",
+    "journeyTitle": "MON PARCOURS_LOG",
+    "journeyDesc1": "Passionné d'informatique depuis mon plus jeune âge, j'ai rapidement orienté mon parcours vers le développement web moderne. Mon passage chez INNO-SOFT m'a permis de comprendre les enjeux critiques du e-commerce à grande échelle.",
+    "journeyDesc2": "Aujourd'hui chez Londo Technology, je pousse les limites du TypeScript et de l'architecture Full-Stack pour bâtir des solutions robustes répondant aux standards les plus stricts de l'industrie.",
+    "bio": {
+      "hello": "Hello !",
+      "intro": "Je m’appelle Fidèle Loffou, développeur Web Full-Stack passionné par la création de solutions digitales de haute précision.",
+      "detail1": "Ancré dans une culture d'excellence technique, j'accompagne mes clients vers des architectures robustes et des interfaces d'exception.",
+      "detail2": "Expertise forgée au sein d’écosystèmes exigeants comme INNO-SOFT et Londo Technology."
+    },
+    "stats": {
+      "years": "ANNÉES D'EXP",
+      "projects": "PROJETS_LIVRÉS",
+      "tech": "TECH_EXPERTISE"
+    }
+  },
+  "Skills": {
+    "title": "L'ARSENAL TECHNIQUE",
+    "expertise": "EXPERTISE",
+    "statsTitle": "[SYSTÈME_MAÎTRISE_STATS]",
+    "categories": {
+      "fe": {
+        "title": "FRONTEND_CORE",
+        "desc": "Création d'interfaces réactives et d'expériences utilisateur immersives avec une attention portée aux détails."
+      },
+      "be": {
+        "title": "BACKEND_LOGIC",
+        "desc": "Conception d'APIs robustes, gestion de bases de données scalables et logique métier complexe."
+      },
+      "devops": {
+        "title": "TOOLS_DEV_OPS",
+        "desc": "Automatisation, déploiement continu et environnements de développement isolés pour une productivité maximale."
+      }
+    }
+  },
+  "Experience": {
+    "title": "PARCOURS PROFESSIONNEL",
+    "logTitle": "[SYSTÈME_HISTORIQUE_LOG]",
+    "highlightsTitle": "RÉALISATIONS CLÉS_",
+    "stackTitle": "STACK TECHNIQUE_",
+    "present": "PRÉSENT",
+    "londo": {
+      "desc": "Conception d'architectures scalables et intégration d'écosystèmes financiers complexes.",
+      "highlights": [
+        "Architecture et développement d'une plateforme de gestion financière hautement sécurisée.",
+        "Migration d'une infrastructure monolithique vers des microservices avec NestJS et Docker.",
+        "Optimisation des requêtes PostgreSQL réduisant le temps de réponse de 40%.",
+        "Mise en place de tests E2E rigoureux assurant une stabilité de production de 99.9%."
+      ]
+    },
+    "inno": {
+      "desc": "Optimisation de flux e-commerce et développement d'outils de gestion intelligents.",
+      "highlights": [
+        "Développement d'une solution e-commerce multilingue supportant 50k+ utilisateurs actifs.",
+        "Intégration de passerelles de paiement complexes et gestion d'inventaire temps réel.",
+        "Amélioration des performances frontend (SEO & Core Web Vitals) avec React et SSR.",
+        "Collaboration étroite avec les équipes UI/UX pour des interfaces centrées utilisateur."
+      ]
+    }
+  },
+  "Projects": {
+    "title": "PROJETS RÉALISÉS",
+    "subtitle": "Une sélection de mes travaux les plus marquants, allant de plateformes bancaires complexes à des solutions e-commerce innovantes. Chaque projet est une preuve d'engagement envers la qualité et la performance.",
+    "label": "PROJET_SÉLECTIONNÉ",
+    "details": "DÉTAILS_VIEW",
+    "exploration": "[DASHBOARD_EXPLORATION_MODE]",
+    "deploy": "DE_PLOY_VIEW",
+    "items": {
+      "cadyst": {
+        "title": "CLICK CADYST",
+        "desc": "Développement d'une application web et mobile pour la gestion des commandes internes de sacs de farine chez PASTA. UI réalisée avec Ionic & Angular-ionic, API sécurisée en Nest.js, base de données MongoDB."
+      },
+      "bci_mobile": {
+        "title": "BCI MOBILE",
+        "desc": "Plateforme mobile pour la gestion des opérations bancaires des clients de la BCI. Réalisé avec Node.js, MongoDB et Angular-ionic."
+      },
+      "cimencam": {
+        "title": "My CIMENCAM",
+        "desc": "Plateforme d'achats de sacs de ciment pour les clients de l'entreprise CIMENCAM. Stacks utilisées : Angular, Node.js, MongoDB."
+      },
+      "bci_net": {
+        "title": "BCI NET",
+        "desc": "Plateforme de gestion des opérations bancaires de la BCI. Stacks utilisées : Angular, Node.js, MongoDB."
+      }
+    }
+  },
+  "Contact": {
+    "title": "ENTRER EN CONTACT",
+    "headerPrefix": "ENTRER EN",
+    "headerAccent": "CONTACT",
+    "status": "EN_LIGNE_DISPONIBLE",
+    "modal": {
+      "title": "ENVOYER UN MESSAGE",
+      "labelName": "Nom",
+      "placeholderName": "Votre nom",
+      "labelEmail": "Email",
+      "placeholderEmail": "votre@email.com",
+      "labelMessage": "Message",
+      "placeholderMessage": "Comment puis-je vous aider ?",
+      "submit": "TRANSMETTRE LE MESSAGE",
+      "sending": "ENVOI EN COURS...",
+      "success": "Message envoyé !",
+      "successDesc": "Merci pour votre message, je vous répondrai dès que possible.",
+      "error": "Erreur",
+      "errorDesc": "Désolé, une erreur est survenue lors de l'envoi du message."
+    }
+  },
+  "Footer": {
+    "tagline": "Construire le futur, une ligne de code à la fois.",
+    "rights": "Tous droits réservés."
+  }
+}

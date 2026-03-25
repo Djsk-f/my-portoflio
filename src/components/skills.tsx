@@ -1,6 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const allSkills = [
   { name: "React", level: 95 },
@@ -13,11 +12,13 @@ const allSkills = [
   { name: "Docker", level: 75 },
 ];
 
-export default function Skills() {
+export default function Skills({ isDetailed = false }: { isDetailed?: boolean }) {
+  const t = useTranslations("Skills");
+
   return (
     <div id="skills" className="skills-section">
       <h2 className="section-title">
-        <span className="title-number">02</span> EXPERTISE
+        <span className="title-number">02</span> {t("expertise")}
       </h2>
       <div className="skills-grid">
         {allSkills.map((skill, index) => (

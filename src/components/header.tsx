@@ -1,8 +1,11 @@
 "use client";
 
+import { Link, usePathname } from "@/i18n/routing";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggleSelect } from "./ui/color-mode";
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -10,6 +13,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
@@ -36,24 +41,12 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const navigationItems = [
-    { href: "#about", text: "À propos" },
-    { href: "#skills", text: "Compétences" },
-    { href: "#experience", text: "Expérience" },
-    { href: "#projects", text: "Projets" },
-    { href: "#contact", text: "Contact" },
-  ];
-
-  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    const target = document.querySelector(href) as HTMLElement;
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 100,
-        behavior: "smooth",
-      });
-    }
-  };
+    { href: "/", text: t("home") },
+    { href: "/skills", text: t("skills") },
+    { href: "/experience", text: t("experience") },
+    { href: "/projects", text: t("projects") },
+    { href: "/contact", text: t("contact") },
+  ] as const;
 
   return (
     <motion.header
@@ -62,25 +55,26 @@ export default function Header() {
       className={`cv-header ${isScrolled ? "scrolled" : ""}`}
     >
       <div className={`cv-header__container ${isScrolled ? "compact" : ""}`}>
-        <motion.div 
-          className="logo"
-          whileHover={{ scale: 1.05 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          FIDELE<span className="dot">.</span>
-        </motion.div>
+        <Link href="/">
+          <motion.div 
+            className="logo"
+            whileHover={{ scale: 1.05 }}
+          >
+            FIDELE<span className="dot">.</span>
+          </motion.div>
+        </Link>
 
         {!isMobile && (
           <nav>
             <ul>
               {navigationItems.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
-                    onClick={handleNavClick(item.href)}
+                    className={pathname === item.href ? "active" : ""}
                   >
                     {item.text}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -88,6 +82,7 @@ export default function Header() {
         )}
 
         <div className="cv-header__actions">
+          <LocaleSwitcher />
           <ThemeToggleSelect isScrolled={isScrolled} />
           {isMobile && (
             <button 
@@ -105,21 +100,28 @@ export default function Header() {
       <AnimatePresence>
         {isMobile && isMobileMenuOpen && (
           <motion.nav
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="mobile-nav"
+            transition={{ duration: 0.3 }}
           >
             <ul>
-              {navigationItems.map((item) => (
-                <li key={item.href}>
-                  <a
+              {navigationItems.map((item, index) => (
+                <motion.li 
+                  key={item.href}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                >
+                  <Link
                     href={item.href}
-                    onClick={handleNavClick(item.href)}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={pathname === item.href ? "active" : ""}
                   >
                     {item.text}
-                  </a>
-                </li>
+                  </Link>
+                </motion.li>
               ))}
             </ul>
           </motion.nav>

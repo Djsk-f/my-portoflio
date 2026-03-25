@@ -10,16 +10,16 @@
   padding: 6rem 4rem;
   position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 2rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(239, 68, 68, 0.2); // Simple red notebook margin line
-    z-index: 10;
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+    gap: 1.5rem;
   }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0.75rem;
+    gap: 1.25rem;
+  }
+
 
   @media (max-width: 1024px) {
     display: flex;
@@ -35,6 +35,14 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+  }
   
   &.bento-about {
     grid-column: span 8;
@@ -68,12 +76,22 @@
   margin-bottom: 3rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+  max-width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
 
   &::after {
     content: "";
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, var(--accent-glow), transparent);
+    min-width: 10px;
   }
   
   .title-number {
@@ -83,6 +101,7 @@
     background: var(--accent-glow);
     border-radius: 4px;
     letter-spacing: 0;
+    flex-shrink: 0;
   }
 }
 

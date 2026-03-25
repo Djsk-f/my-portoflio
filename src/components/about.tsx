@@ -1,12 +1,13 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-export default function About() {
+export default function About({ isDetailed = false }: { isDetailed?: boolean }) {
+  const t = useTranslations("About");
+
   return (
     <div id="about" className="about-section">
       <h2 className="section-title">
-        <span className="title-number">01</span> À PROPOS
+        <span className="title-number">01</span> {t("title")}
       </h2>
       <div className="about-grid">
         <motion.div 
@@ -16,18 +17,14 @@ export default function About() {
           className="about-bio"
         >
           <p className="bio-intro">
-            <span className="hello-tag">Hello !</span> Je m’appelle{" "}
-            <span className="highlight">Fidèle Loffou</span>, développeur Web Full-Stack passionné par
-            la création de solutions digitales de haute précision.
+            <span className="hello-tag">{t("bio.hello")}</span> {t("bio.intro")}
           </p>
           <div className="bio-details">
             <p>
-              Ancré dans une culture d'excellence technique, j'accompagne mes clients vers 
-              des architectures robustes et des interfaces d'exception.
+              {t("bio.detail1")}
             </p>
             <p>
-              Expertise forgée au sein d’écosystèmes exigeants comme <strong>INNO-SOFT</strong> 
-              et <strong>Londo Technology</strong>.
+              {t("bio.detail2")}
             </p>
           </div>
         </motion.div>
@@ -40,15 +37,15 @@ export default function About() {
         >
           <div className="stat-card">
             <span className="stat-value">3+</span>
-            <span className="stat-label">ANNÉES D'EXP</span>
+            <span className="stat-label">{t("stats.years")}</span>
           </div>
           <div className="stat-card">
             <span className="stat-value">15+</span>
-            <span className="stat-label">PROJETS_LIVRÉS</span>
+            <span className="stat-label">{t("stats.projects")}</span>
           </div>
           <div className="stat-card">
             <span className="stat-value">10+</span>
-            <span className="stat-label">TECH_EXPERTISE</span>
+            <span className="stat-label">{t("stats.tech")}</span>
           </div>
         </motion.div>
       </div>

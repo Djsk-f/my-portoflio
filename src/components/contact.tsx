@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("Footer");
 
   const socialLinks = [
     { icon: <FaLinkedin />, href: "https://linkedin.com/in/fidele-loffou", label: "LinkedIn" },
@@ -19,7 +21,7 @@ export default function Contact() {
         <div className="footer-content tech-card">
           <div className="footer-info">
             <h3 className="footer-logo">FIDELE<span className="dot">.</span></h3>
-            <p className="footer-tagline">Construire le futur, une ligne de code à la fois.</p>
+            <p className="footer-tagline">{t("tagline")}</p>
           </div>
 
           <div className="footer-links">
@@ -39,7 +41,7 @@ export default function Contact() {
           </div>
 
           <div className="footer-bottom">
-            <p>© {currentYear} Fidele Loffou. Tous droits réservés.</p>
+            <p>© {currentYear} Fidele Loffou. {t("rights")}</p>
           </div>
         </div>
       </div>

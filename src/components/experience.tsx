@@ -1,27 +1,28 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const experiences = [
-  {
-    company: "Londo Technology",
-    role: "Full-Stack Developer",
-    period: "2023 - PRÉSENT",
-    description: "Conception d'architectures scalables et intégration d'écosystèmes financiers complexes.",
-  },
-  {
-    company: "INNO-SOFT",
-    role: "Full-Stack Developer",
-    period: "2021 - 2023",
-    description: "Optimisation de flux e-commerce et développement d'outils de gestion intelligents.",
-  },
-];
+export default function Experience({ isDetailed = false }: { isDetailed?: boolean }) {
+  const t = useTranslations("Experience");
 
-export default function Experience() {
+  const experiences = [
+    {
+      company: "Londo Technology",
+      role: "Full-Stack Developer",
+      period: `2023 - ${t("present")}`,
+      description: t("londo.desc"),
+    },
+    {
+      company: "INNO-SOFT",
+      role: "Full-Stack Developer",
+      period: "2021 - 2023",
+      description: t("inno.desc"),
+    },
+  ];
+
   return (
     <div id="experience" className="experience-section">
       <h2 className="section-title">
-        <span className="title-number">03</span> EXPÉRIENCE
+        <span className="title-number">03</span> {t("title")}
       </h2>
       <div className="experience-list">
         {experiences.map((exp, index) => (
