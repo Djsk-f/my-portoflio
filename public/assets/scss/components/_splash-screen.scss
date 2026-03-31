@@ -1,0 +1,58 @@
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-mono);
+
+  .splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+  }
+
+  .splash-logo {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    font-family: var(--font-hitech);
+    color: #3182ce; // Chakra blue-500 fallback, using var(--accent-primary) if available
+    
+    // Add glowing effect
+    text-shadow: 0 0 20px rgba(49, 130, 206, 0.5);
+  }
+
+  .splash-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+  }
+
+  .progress-container {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 10px;
+
+    .progress-bar {
+      height: 100%;
+      background: #3182ce; 
+      box-shadow: 0 0 10px #3182ce;
+    }
+  }
+
+  .progress-text {
+    font-size: 12px;
+    opacity: 0.4;
+    align-self: flex-end;
+  }
+}

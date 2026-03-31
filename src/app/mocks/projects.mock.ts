@@ -2,27 +2,64 @@ import { Project } from "../models/projects.model";
 
 export const projects: Project[] = [
   {
+    id: "click-cadyst",
     title: "ClICK CADYST",
-    role: "Full-Stack Developer",
-    description: "Application de gestion des commandes de sacs de farine pour l'entreprise PASTA. Développement en full-stack avec intégration d'API sécurisées.",
-    stack: ["Ionic", "Angular", "NestJS", "MongoDB"],
+    role: "Senior Full-Stack Developer",
+    description: "Système critique de gestion des flux de commandes pour PASTA (Groupe Cadyst). Digitalisation complète du processus de commande B2B.",
+    stack: ["Ionic", "Angular", "NestJS", "MongoDB", "Redis"],
     image: "/assets/images/cadyst_mobile.png",
     link: { url: "https://play.google.com/store/apps/details?id=com.clickcadyst.mobile", label: "Play Store" },
+    context: "L'entreprise PASTA faisait face à des lenteurs et des erreurs manuelles dans la gestion des commandes de farine.",
+    problem: "Processus papier inefficace, manque de visibilité sur les stocks en temps réel et erreurs de saisie fréquentes.",
+    solution: "Développement d'une application cross-plateforme (Ionic) avec un backend scalable (NestJS) et une synchronisation offline-first.",
+    architecture: "Microservices avec NestJS, cache Redis pour les sessions, et base de données MongoDB pour la flexibilité des schémas.",
+    results: ["Réduction de 40% du temps de traitement des commandes", "Suppression totale des erreurs de saisie manuelle", "Amélioration de la satisfaction client de 25%"],
+    version: "2.4.0",
+    changelog: ["Intégration du paiement mobile", "Optimisation de la synchro offline"],
+    featured: true
   },
   {
+    id: "fly-banking",
     title: "Fly-Banking & Opération Visa",
     role: "Full-Stack Developer",
-    description: "Gestion des demandes d'augmentation des plafonds bancaires pour les clients effectuant des transactions hors zone CEMAC. APIs robustes et sécurisées.",
+    description: "Automatisation des demandes d'augmentation de plafonds pour les transactions internationales hors zone CEMAC.",
     stack: ["Angular", "Node.js", "Express.js", "MySQL"],
-    image: "/assets/images/bci_mobile.png", // Assuming this image is relevant for banking
+    image: "/assets/images/bci_mobile.png",
     link: { url: "https://github.com/fidele007", label: "GitHub" },
+    context: "Les clients bancaires devaient se déplacer physiquement pour augmenter leurs plafonds de carte Visa lors de voyages.",
+    problem: "Frottement client élevé et charge administrative importante pour les conseillers bancaires.",
+    solution: "Portail sécurisé permettant l'auto-service pour les demandes d'augmentation, avec validation workflow automatique.",
+    results: ["+500 demandes traitées par mois", "Délai de traitement passé de 48h à 5min"],
+    version: "1.1.0"
   },
   {
-    title: "Mon Panier",
-    role: "Full-Stack Developer",
-    description: "Plateforme e-commerce complète avec catalogue dynamique, panier et suivi de paiements.",
+    id: "mon-panier",
+    title: "Mon Panier (E-commerce)",
+    role: "Frontend Lead",
+    description: "Plateforme e-commerce haut de gamme avec catalogues dynamiques et intégration de paiements sécurisés.",
     stack: ["React", "Next.js", "Node.js", "MongoDB"],
-    image: "/assets/images/cimencam.png", // Using existing e-commerce image
+    image: "/assets/images/cimencam.png",
     link: { url: "https://github.com/fidele007", label: "GitHub" },
+    context: "Besoin d'une plateforme e-commerce moderne capable de supporter des pics de charge saisonniers.",
+    problem: "Ancienne plateforme instable et non responsive.",
+    solution: "Refonte complète sous Next.js avec SSR pour le SEO et Framer Motion pour une expérience utilisateur premium.",
+    results: ["Score Lighthouse Performance > 90", "Taux de conversion augmenté de 15%"],
+    version: "2.0.1"
+  },
+  {
+    id: "cimencam-sfa",
+    title: "CIMENCAM SFA",
+    role: "Senior Full-Stack Developer",
+    description: "Plateforme Sales Force Automation (SFA) pour Cimencam. Digitalisation complète du suivi des ventes et de la distribution industrielle.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma"],
+    image: "",
+    link: { url: "https://sfa.mycimencam.com/auth/login", label: "Cimencam SFA" },
+    context: "Cimencam, leader de l'industrie du ciment au Cameroun, souhaitait moderniser le suivi de ses opérations de vente sur le terrain.",
+    problem: "Suivi manuel des ventes, manque de visibilité en temps réel sur les performances des agents et processus de reporting fastidieux.",
+    solution: "Développement d'une application web SFA robuste permettant le suivi en temps réel des commandes, la gestion du portefeuille client et des analyses de performance avancées.",
+    architecture: "Architecture Web moderne avec React pour le frontend et Node.js pour le backend, garantissant une haute disponibilité et une sécurité renforcée.",
+    results: ["Amélioration de la productivité des équipes de vente", "Reporting en temps réel accessible à la direction", "Optimisation de la gestion de la relation client (CRM)"],
+    version: "1.0.0",
+    featured: true
   },
 ];

@@ -101,6 +101,11 @@
     "deploy": "DE_PLOY_VIEW",
     "role": "RÔLE",
     "viewGithub": "VOIR SUR GITHUB",
+    "context": "Contexte",
+    "problem": "Problématique",
+    "solution": "Solution",
+    "architecture": "Architecture",
+    "results": "Résultats Clés",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
@@ -116,10 +121,43 @@
         "title": "MON PANIER",
         "role": "Développeur Full-Stack — B2C E-commerce",
         "desc": "Plateforme complète de vente en ligne. Catalogue dynamique, système de panier avancé et suivi des paiements."
+      },
+      "cimencam": {
+        "title": "CIMENCAM SFA",
+        "role": "Développeur Full-Stack Senior — SFA",
+        "desc": "Plateforme Sales Force Automation pour Cimencam. Transformation digitale du processus de distribution industrielle et suivi des ventes."
       }
     }
   },
+  "Search": {
+    "placeholder": "Rechercher un projet, une compétence...",
+    "noResults": "Aucun résultat trouvé pour \"{query}\"",
+    "suggestions": "Suggestions de recherche :",
+    "footerOpen": "pour ouvrir",
+    "footerClose": "pour fermer"
+  },
+  "DevTool": {
+    "title": "Console Dev Senior",
+    "tabs": {
+      "flags": "Flags",
+      "analytics": "Analytics"
+    },
+    "sections": {
+      "health": "Santé Système",
+      "flags": "Feature Flags",
+      "stats": "Stats Trafic"
+    },
+    "metrics": {
+      "performance": "Performance",
+      "loadTime": "Temps de chargement"
+    },
+    "stats": {
+      "totalEvents": "Total Événements"
+    },
+    "footerNote": "Ces paramètres persistent en LocalStorage"
+  },
   "Contact": {
+
     "title": "ENTRER EN CONTACT",
     "headerPrefix": "ENTRER EN",
     "headerAccent": "CONTACT",

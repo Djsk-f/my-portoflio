@@ -40,8 +40,10 @@ export default function ProjectsPage() {
               const key = getProjectKey(project.title);
               return (
                 <motion.div
-                  key={project.title}
+                  key={project.id || project.title}
+                  id={project.id}
                   className={`project-entry ${index % 2 !== 0 ? 'reverse' : ''}`}
+
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -62,6 +64,9 @@ export default function ProjectsPage() {
                         <Layers size={18} />
                       </div>
                       <span className="label">{t("label")}</span>
+                      {project.version && (
+                        <span className="version-badge">v{project.version}</span>
+                      )}
                     </div>
 
                     <h2>{key ? t(`items.${key}.title`) : project.title}</h2>
@@ -74,6 +79,28 @@ export default function ProjectsPage() {
                     <p className="desc">
                       {key ? t(`items.${key}.desc`) : project.description}
                     </p>
+
+                    {/* Case Study Details Section */}
+                    {(project.context || project.problem || project.solution) && (
+                      <div className="case-study-preview">
+                        {project.context && (
+                          <div className="study-item">
+                            <span className="study-label">{t("context")}:</span> {project.context}
+                          </div>
+                        )}
+                        {project.results && project.results.length > 0 && (
+                          <div className="results-list">
+                            <span className="study-label">{t("results")}:</span>
+                            <ul>
+                              {project.results.map((res, i) => (
+                                <li key={i}>{res}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
 
                     <div className="stack">
                       {project.stack.map(tech => (
@@ -92,6 +119,7 @@ export default function ProjectsPage() {
                       </button>
                     </div>
                   </div>
+
                 </motion.div>
               );
             })}

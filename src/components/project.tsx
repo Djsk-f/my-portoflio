@@ -35,7 +35,16 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
               className="project-card"
             >
               <div className="project-image-box">
-                <img src={project.image} alt={project.title} />
+                {project.image ? (
+                  <img src={project.image} alt={project.title} />
+                ) : (
+                  <div className="project-image-placeholder">
+                    <div className="placeholder-content">
+                      <code className="placeholder-text">IMAGE_NOT_FOUND_</code>
+                      <div className="glitch-line"></div>
+                    </div>
+                  </div>
+                )}
                 <div className="project-overlay">
                   {project.link?.url && (
                     <a

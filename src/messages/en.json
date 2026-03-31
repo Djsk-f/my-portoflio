@@ -101,6 +101,11 @@
     "deploy": "DE_PLOY_VIEW",
     "role": "ROLE",
     "viewGithub": "VIEW ON GITHUB",
+    "context": "Context",
+    "problem": "Problem",
+    "solution": "Solution",
+    "architecture": "Architecture",
+    "results": "Key Results",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
@@ -116,10 +121,43 @@
         "title": "MON PANIER",
         "role": "Full-Stack Developer — B2C E-commerce",
         "desc": "Full e-commerce platform. Dynamic catalog, advanced cart system, and payment tracking."
+      },
+      "cimencam": {
+        "title": "CIMENCAM SFA",
+        "role": "Senior Full-Stack Developer — SFA",
+        "desc": "Sales Force Automation platform for Cimencam. Digital transformation of the industrial distribution and sales tracking process."
       }
     }
   },
+  "Search": {
+    "placeholder": "Search projects, skills...",
+    "noResults": "No results found for \"{query}\"",
+    "suggestions": "Search suggestions:",
+    "footerOpen": "to open",
+    "footerClose": "to close"
+  },
+  "DevTool": {
+    "title": "Senior Dev Console",
+    "tabs": {
+      "flags": "Flags",
+      "analytics": "Analytics"
+    },
+    "sections": {
+      "health": "System Health",
+      "flags": "Feature Flags",
+      "stats": "Traffic Stats"
+    },
+    "metrics": {
+      "performance": "Performance",
+      "loadTime": "Load Time"
+    },
+    "stats": {
+      "totalEvents": "Total Events"
+    },
+    "footerNote": "These settings persist in LocalStorage"
+  },
   "Contact": {
+
     "title": "GET IN TOUCH",
     "headerPrefix": "GET IN",
     "headerAccent": "TOUCH",

@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggleSelect } from "./ui/color-mode";
 import { useTranslations } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
+import SearchDialog from "./SearchDialog";
+
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -82,8 +84,10 @@ export default function Header() {
         )}
 
         <div className="cv-header__actions">
+          {!isMobile && <SearchDialog />}
           <LocaleSwitcher />
           <ThemeToggleSelect isScrolled={isScrolled} />
+
           {isMobile && (
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
