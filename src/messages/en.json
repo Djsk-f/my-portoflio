@@ -1,4 +1,10 @@
 {
+  "Common": {
+    "loading": "SYSTEM_LOADING...",
+    "github": "GitHub",
+    "noImage": "IMAGE_NOT_AVAILABLE_LOG_",
+    "chars": "chars"
+  },
   "Navigation": {
     "home": "Home",
     "about": "About",
@@ -45,6 +51,12 @@
     "title": "TECHNICAL ARSENAL",
     "expertise": "EXPERTISE",
     "statsTitle": "[SYSTEM_MASTERY_STATS]",
+    "categories_names": {
+      "fe": "Frontend",
+      "be": "Backend",
+      "language": "Language",
+      "devops": "DevOps"
+    },
     "categories": {
       "fe": {
         "title": "FRONTEND_CORE",
@@ -90,11 +102,16 @@
         "Digitization of registrations for 'Vacances 100% TIC' national program.",
         "Design of an automated administrative leave management system."
       ]
+    },
+    "roles": {
+      "fullstack": "Full-Stack Web Developer",
+      "trainer": "Full-Stack Developer / Trainer",
+      "intern": "Intern"
     }
   },
   "Projects": {
-    "title": "COMPLETED PROJECTS",
-    "subtitle": "A selection of my most significant work, ranging from complex banking platforms to innovative e-commerce solutions. Each project is proof of commitment to quality and performance.",
+    "title": "ENGINEERING SHOWCASE",
+    "subtitle": "A curated collection of digital ecosystems where technical excellence meets strategic innovation. From high-security Fintech architectures to industrial-grade SFA solutions, each project is optimized for absolute performance and elite user experience.",
     "label": "SELECTED_PROJECT",
     "details": "DETAILS_VIEW",
     "exploration": "[DASHBOARD_EXPLORATION_MODE]",
@@ -106,26 +123,37 @@
     "solution": "Solution",
     "architecture": "Architecture",
     "results": "Key Results",
+    "noImage": "IMAGE_NOT_AVAILABLE_LOG_",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
         "role": "Full-Stack Developer — Web & Mobile",
-        "desc": "Centralized management of internal flour bag orders for PASTA. Web, mobile app, and secure APIs with an intuitive interface. Available on Play Store."
+        "desc": "Centralized management of internal flour bag orders for PASTA. Web, mobile app, and secure APIs with an intuitive interface. Available on Play Store.",
+        "context": "The company PASTA faced delays and manual errors in managing flour orders.",
+        "results": []
       },
       "fly": {
         "title": "FLY-BANKING & OPÉRATION VISA",
         "role": "Full-Stack Developer — Fintech",
-        "desc": "Management system for bank limits for international transactions. Robust and secure APIs."
+        "desc": "Management system for bank limits for international transactions. Robust and secure APIs.",
+        "context": "Banking customers had to physically travel to increase their Visa card limits during travel.",
+        "results": []
       },
       "panier": {
         "title": "MON PANIER",
         "role": "Full-Stack Developer — B2C E-commerce",
-        "desc": "Full e-commerce platform. Dynamic catalog, advanced cart system, and payment tracking."
+        "desc": "Full e-commerce platform. Dynamic catalog, advanced cart system, and payment tracking.",
+        "context": "Need for a modern e-commerce platform capable of supporting seasonal peak loads.",
+        "results": []
       },
       "cimencam": {
         "title": "CIMENCAM SFA",
         "role": "Senior Full-Stack Developer — SFA",
-        "desc": "Sales Force Automation platform for Cimencam. Digital transformation of the industrial distribution and sales tracking process."
+        "desc": "Sales Force Automation platform for Cimencam. Digital transformation of the industrial distribution and sales tracking process.",
+        "context": "Cimencam, the leader in the cement industry in Cameroon, wanted to modernize the tracking of its sales operations in the field.",
+        "problem": "Manual sales tracking, lack of real-time visibility on agent performance, and tedious reporting processes.",
+        "solution": "Development of a robust SFA web application for real-time order tracking, customer portfolio management, and advanced performance analytics.",
+        "results": []
       }
     }
   },
@@ -134,7 +162,12 @@
     "noResults": "No results found for \"{query}\"",
     "suggestions": "Search suggestions:",
     "footerOpen": "to open",
-    "footerClose": "to close"
+    "footerClose": "to close",
+    "types": {
+      "project": "Project",
+      "skill": "Skill",
+      "page": "Page"
+    }
   },
   "DevTool": {
     "title": "Senior Dev Console",

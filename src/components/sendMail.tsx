@@ -23,6 +23,7 @@ import { useTranslations } from "next-intl";
 
 export default function SendMailModal() {
   const t = useTranslations("Contact.modal");
+  const tCommon = useTranslations("Common");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [formData, setFormData] = useState({
     name: "",
@@ -147,7 +148,7 @@ export default function SendMailModal() {
                     placeholder={t("placeholderMessage")}
                   />
                   <div className="chars-count">
-                    {formData.message.length} chars
+                    {formData.message.length} {tCommon("chars")}
                   </div>
                 </div>
               </VStack>

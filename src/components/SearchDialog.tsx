@@ -145,7 +145,7 @@ export default function SearchDialog() {
                         </div>
                         <div className="item-info">
                           <span className="item-title">{item.title}</span>
-                          <span className="item-type">{item.type}</span>
+                          <span className="item-type">{t(`types.${item.type}`)}</span>
                         </div>
                       </Link>
                     ))}

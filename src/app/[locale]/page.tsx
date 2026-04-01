@@ -14,7 +14,6 @@ import { useTranslations } from "next-intl";
 
 export default function Home() {
   const { scrollY } = useScroll();
-  const [mousePos, setMousePos] = React.useState({ x: 50, y: 50 });
   const [isMobile, setIsMobile] = React.useState(false);
   const t = useTranslations("Home");
 
@@ -32,31 +31,19 @@ export default function Home() {
   const iconY3 = useTransform(scrollY, [0, 1000], [0, -250]);
 
   React.useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
-
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
 
     handleResize(); // Initial check
-    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <div className="modern-layout" style={{ 
-      "--mouse-x": `${mousePos.x}%`, 
-      "--mouse-y": `${mousePos.y}%` 
-    } as React.CSSProperties}>
+    <div className="modern-layout">
       
       {/* Parallax Background Notebook Decoration */}
       <motion.div 
@@ -70,9 +57,6 @@ export default function Home() {
       <motion.div style={{ y: iconY3 }} className="floating-icon icon-3"><Cpu size={50} /></motion.div>
       <motion.div style={{ y: iconY1 }} className="floating-icon icon-4"><Database size={45} /></motion.div>
 
-      {/* Alive Background Orbs */}
-      <motion.div style={{ y: orb1Y }} className="orb orb-1"></motion.div>
-      <motion.div style={{ y: orb2Y }} className="orb orb-2"></motion.div>
 
       {/* Hero Section */}
       <section className="hero">

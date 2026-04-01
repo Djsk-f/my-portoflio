@@ -1,58 +1,136 @@
 .splash-screen {
   position: fixed;
   inset: 0;
-  z-index: 999999;
-  background: #000;
+  z-index: 9999999;
+  background: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-family: var(--font-mono);
+  overflow: hidden;
 
   .splash-content {
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 300px;
-  }
-
-  .splash-logo {
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    font-family: var(--font-hitech);
-    color: #3182ce; // Chakra blue-500 fallback, using var(--accent-primary) if available
-    
-    // Add glowing effect
-    text-shadow: 0 0 20px rgba(49, 130, 206, 0.5);
-  }
-
-  .splash-text {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    opacity: 0.6;
-  }
-
-  .progress-container {
+    gap: 3rem;
     width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-top: 10px;
+    max-width: 400px;
+  }
 
-    .progress-bar {
+  .splash-logo-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo-glass {
+      width: 100%;
       height: 100%;
-      background: #3182ce; 
-      box-shadow: 0 0 10px #3182ce;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      .logo-text {
+        font-family: var(--font-hitech);
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        color: #fff;
+        opacity: 0.9;
+      }
+    }
+
+    .logo-ring {
+      position: absolute;
+      inset: -5px;
+      border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
+      border-radius: 25px;
+      animation: pulse-ring 3s infinite ease-out;
     }
   }
 
-  .progress-text {
-    font-size: 12px;
-    opacity: 0.4;
-    align-self: flex-end;
+  .splash-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+
+    .status-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .status-percent {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-primary);
+      opacity: 0.8;
+    }
   }
+
+  .splash-progress {
+    width: 160px;
+    height: 1px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+
+    .progress-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--accent-primary);
+      box-shadow: 0 0 10px var(--accent-primary);
+    }
+  }
+
+  .splash-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+      opacity: 0.2;
+    }
+
+    .orb-decoration {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: var(--accent-glow);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+    }
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0; }
 }

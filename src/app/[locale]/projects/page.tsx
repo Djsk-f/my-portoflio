@@ -8,32 +8,36 @@ import { useTranslations } from "next-intl";
 
 export default function ProjectsPage() {
   const t = useTranslations("Projects");
+  const tCommon = useTranslations("Common");
 
   const getProjectKey = (title: string) => {
-    if (title.includes("CADYST")) return "cadyst";
-    if (title.includes("BCI MOBILE")) return "bci_mobile";
-    if (title.includes("CIMENCAM")) return "cimencam";
-    if (title.includes("BCI NET")) return "bci_net";
+    const t = title.toUpperCase();
+    if (t.includes("CADYST")) return "cadyst";
+    if (t.includes("FLY") || t.includes("BCI")) return "fly";
+    if (t.includes("PANIER")) return "panier";
+    if (t.includes("CIMENCAM")) return "cimencam";
     return "";
   };
 
   return (
     <div className="projects-page">
-      <div className="orb orb-1"></div>
-      <div className="orb orb-2"></div>
-
       <div className="modern-container">
         <section className="projects-detailed">
-          <motion.div
-            className="projects-header"
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.h1
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
           >
-            <h1>{t("title")}</h1>
-            <p>
-              {t("subtitle")}
-            </p>
-          </motion.div>
+            {t("title")}
+          </motion.h1>
+
+          <motion.p 
+            className="header-description"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            {t("subtitle")}
+          </motion.p>
 
           <div className="project-showcase">
             {projects.map((project: Project, index: number) => {
@@ -42,67 +46,55 @@ export default function ProjectsPage() {
                 <motion.div
                   key={project.id || project.title}
                   id={project.id}
-                  className={`project-entry ${index % 2 !== 0 ? 'reverse' : ''}`}
-
-                  initial={{ opacity: 0, y: 50 }}
+                  className="project-entry"
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <div className="entry-media">
                     <div className="media-container">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                      />
+                      {project.image ? (
+                        <img src={project.image} alt={project.title} />
+                      ) : (
+                        <div className="project-image-placeholder">
+                          <div className="placeholder-content">
+                            <code className="placeholder-text">{tCommon("noImage")}</code>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {project.version && (
+                      <div className="metadata">
+                        <span className="version-badge">v{project.version}</span>
+                      </div>
+                    )}
+
+                    <div className="entry-overlay">
+                      <div className="stack-preview">
+                        {project.stack.slice(0, 3).map(tech => (
+                          <span key={tech} className="tech-tag">{tech}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
                   <div className="entry-content">
-                    <div className="metadata">
-                      <div className="icon-wrapper">
-                        <Layers size={18} />
+                    <div className="content-header">
+                      <span className="label">[{t("label")}]</span>
+                      <h2>{key ? t(`items.${key}.title`) : project.title}</h2>
+                      <div className="role-info">
+                        <User size={14} />
+                        <span>{project.role}</span>
                       </div>
-                      <span className="label">{t("label")}</span>
-                      {project.version && (
-                        <span className="version-badge">v{project.version}</span>
-                      )}
-                    </div>
-
-                    <h2>{key ? t(`items.${key}.title`) : project.title}</h2>
-
-                    <div className="role-badge">
-                      <User size={14} className="text-accent-primary" />
-                      {project.role}
                     </div>
 
                     <p className="desc">
                       {key ? t(`items.${key}.desc`) : project.description}
                     </p>
 
-                    {/* Case Study Details Section */}
-                    {(project.context || project.problem || project.solution) && (
-                      <div className="case-study-preview">
-                        {project.context && (
-                          <div className="study-item">
-                            <span className="study-label">{t("context")}:</span> {project.context}
-                          </div>
-                        )}
-                        {project.results && project.results.length > 0 && (
-                          <div className="results-list">
-                            <span className="study-label">{t("results")}:</span>
-                            <ul>
-                              {project.results.map((res, i) => (
-                                <li key={i}>{res}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-
-                    <div className="stack">
+                    <div className="stack-tags">
                       {project.stack.map(tech => (
                         <span key={tech} className="tech-tag">
                           {tech}
@@ -111,15 +103,22 @@ export default function ProjectsPage() {
                     </div>
 
                     <div className="actions">
-                      <button className="btn-primary flex items-center gap-2">
+                      <button className="main-action">
                         {t("details")} <ExternalLink size={16} />
                       </button>
-                      <button className="btn-secondary p-3" aria-label="Github link">
-                        <Github size={20} />
-                      </button>
+                      {project.link?.url && (
+                        <a 
+                          href={project.link.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="icon-action" 
+                          aria-label="Github link"
+                        >
+                          <Github size={20} />
+                        </a>
+                      )}
                     </div>
                   </div>
-
                 </motion.div>
               );
             })}

@@ -8,21 +8,21 @@ export default function Experience({ isDetailed = false }: { isDetailed?: boolea
   const experiences = [
     {
       company: "Londo Technology",
-      role: "Développeur Web Full-Stack",
+      role: t("roles.fullstack"),
       period: `2024 - ${t("present")}`,
       description: t("londo.desc"),
       highlights: t.raw("londo.highlights") as string[],
     },
     {
       company: "INNO-SOFT",
-      role: "Développeur Full-Stack / Formateur",
+      role: t("roles.trainer"),
       period: "2023 - 2024",
       description: t("inno.desc"),
       highlights: t.raw("inno.highlights") as string[],
     },
     {
       company: "MINPOSTEL-EST",
-      role: t("present") === "PRESENT" ? "Intern" : "Stagiaire",
+      role: t("roles.intern"),
       period: "2021",
       description: t("minpostel.desc"),
       highlights: t.raw("minpostel.highlights") as string[],

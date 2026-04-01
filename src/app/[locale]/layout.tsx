@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import DevTool from "@/components/DevTool";
 import ClientAnalytics from "@/components/ClientAnalytics";
 import SplashScreen from "@/components/SplashScreen";
+import BackgroundEffect from "@/components/BackgroundEffect";
 
 
 import Loading from "../page/loading";
@@ -45,6 +46,7 @@ export async function generateMetadata({
   const description = descriptions[locale] || descriptions.fr;
 
   return {
+    metadataBase: new URL('https://fideleloffou.dev'),
     title,
     description,
     icons: {
@@ -118,6 +120,7 @@ export default async function RootLayout({
           <ColorModeProvider>
             <ProviderChakra>
               <SplashScreen />
+              <BackgroundEffect />
               <SmoothScrollProvider>
                 <Suspense fallback={<Loading />}>
                   <Header />

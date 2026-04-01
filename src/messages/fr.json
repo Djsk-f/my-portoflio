@@ -1,4 +1,10 @@
 {
+  "Common": {
+    "loading": "CHARGEMENT_SYSTÈME...",
+    "github": "GitHub",
+    "noImage": "IMAGE_NON_DISPONIBLE_LOG_",
+    "chars": "caractères"
+  },
   "Navigation": {
     "home": "Accueil",
     "about": "À Propos",
@@ -45,6 +51,12 @@
     "title": "L'ARSENAL TECHNIQUE",
     "expertise": "EXPERTISE",
     "statsTitle": "[SYSTÈME_MAÎTRISE_STATS]",
+    "categories_names": {
+      "fe": "Frontend",
+      "be": "Backend",
+      "language": "Langage",
+      "devops": "DevOps"
+    },
     "categories": {
       "fe": {
         "title": "FRONTEND_CORE",
@@ -90,11 +102,16 @@
         "Informatisation des inscriptions au programme national 'Vacances 100% TIC'.",
         "Conception d'un système de gestion automatisée des congés administratifs."
       ]
+    },
+    "roles": {
+      "fullstack": "Développeur Web Full-Stack",
+      "trainer": "Développeur Full-Stack / Formateur",
+      "intern": "Stagiaire"
     }
   },
   "Projects": {
-    "title": "PROJETS RÉALISÉS",
-    "subtitle": "Une sélection de mes travaux les plus marquants, allant de plateformes bancaires complexes à des solutions e-commerce innovantes. Chaque projet est une preuve d'engagement envers la qualité et la performance.",
+    "title": "LABORATOIRE DE RÉALISATIONS",
+    "subtitle": "Exploration d'écosystèmes numériques où l'ingénierie logicielle rencontre l'innovation. Une sélection rigoureuse de projets allant de l'architecture Fintech aux solutions industrielles SFA, conçus pour la performance brute et l'expérience utilisateur d'élite.",
     "label": "PROJET_SÉLECTIONNÉ",
     "details": "DÉTAILS_VIEW",
     "exploration": "[DASHBOARD_EXPLORATION_MODE]",
@@ -106,26 +123,37 @@
     "solution": "Solution",
     "architecture": "Architecture",
     "results": "Résultats Clés",
+    "noImage": "IMAGE_NON_DISPONIBLE_LOG_",
     "items": {
       "cadyst": {
         "title": "CLICK CADYST",
-        "role": "Développeur Full-Stack — Web & Mobile",
-        "desc": "Gestion centralisée des commandes internes de sacs de farine pour PASTA. App web, mobile et APIs sécurisées avec une interface intuitive. Disponible sur Play Store."
+        "role": "Full-Stack Developer — Web & Mobile",
+        "desc": "Gestion centralisée des commandes internes de sacs de farine pour PASTA. Web, appli mobile et APIs sécurisées avec une interface intuitive. Disponible sur Play Store.",
+        "context": "L'entreprise PASTA faisait face à des lenteurs et des erreurs manuelles dans la gestion des commandes de farine.",
+        "results": []
       },
       "fly": {
         "title": "FLY-BANKING & OPÉRATION VISA",
-        "role": "Développeur Full-Stack — Fintech",
-        "desc": "Système de gestion des plafonds bancaires pour transactions internationales hors zone CEMAC. APIs robustes et sécurisées."
+        "role": "Full-Stack Developer — Fintech",
+        "desc": "Système de gestion des plafonds bancaires pour les transactions internationales. APIs robustes et sécurisées.",
+        "context": "Les clients bancaires devaient se déplacer physiquement pour augmenter leurs plafonds de carte Visa lors de voyages.",
+        "results": []
       },
       "panier": {
         "title": "MON PANIER",
-        "role": "Développeur Full-Stack — B2C E-commerce",
-        "desc": "Plateforme complète de vente en ligne. Catalogue dynamique, système de panier avancé et suivi des paiements."
+        "role": "Full-Stack Developer — B2C E-commerce",
+        "desc": "Plateforme e-commerce complète. Catalogue dynamique, système de panier avancé et suivi des paiements.",
+        "context": "Besoin d'une plateforme e-commerce moderne capable de supporter des pics de charge saisonniers.",
+        "results": []
       },
       "cimencam": {
         "title": "CIMENCAM SFA",
-        "role": "Développeur Full-Stack Senior — SFA",
-        "desc": "Plateforme Sales Force Automation pour Cimencam. Transformation digitale du processus de distribution industrielle et suivi des ventes."
+        "role": "Senior Full-Stack Developer — SFA",
+        "desc": "Plateforme Sales Force Automation (SFA) pour Cimencam. Digitalisation complète du suivi des ventes et de la distribution industrielle.",
+        "context": "Cimencam, leader de l'industrie du ciment au Cameroun, souhaitait moderniser le suivi de ses opérations de vente sur le terrain.",
+        "problem": "Suivi manuel des ventes, manque de visibilité en temps réel sur les performances des agents et processus de reporting fastidieux.",
+        "solution": "Développement d'une application web SFA robuste permettant le suivi en temps réel des commandes, la gestion du portefeuille client et des analyses de performance avancées.",
+        "results": []
       }
     }
   },
@@ -134,7 +162,12 @@
     "noResults": "Aucun résultat trouvé pour \"{query}\"",
     "suggestions": "Suggestions de recherche :",
     "footerOpen": "pour ouvrir",
-    "footerClose": "pour fermer"
+    "footerClose": "pour fermer",
+    "types": {
+      "project": "Projet",
+      "skill": "Compétence",
+      "page": "Page"
+    }
   },
   "DevTool": {
     "title": "Console Dev Senior",

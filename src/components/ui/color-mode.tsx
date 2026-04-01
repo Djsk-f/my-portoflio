@@ -51,7 +51,7 @@ export function ColorModeIcon() {
 }
 
 // ---------------- SELECT (DARK/LIGHT) ----------------
-const MotionSelect = motion(Select)
+const MotionSelect = motion.create(Select)
 
 export function ThemeToggleSelect({ isScrolled }: { isScrolled: boolean }) {
   const { colorMode, setColorMode } = useColorMode()

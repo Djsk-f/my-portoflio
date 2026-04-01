@@ -8,8 +8,8 @@ export const trackEvent = (eventName: string, metadata: any = {}) => {
   const now = new Date().toISOString();
   const event = { eventName, metadata, timestamp: now };
   
-  // 1. Log to console (Senior vibe: observability)
-  console.log(`[Analytics] ${eventName}`, metadata);
+  // 1. Log to console (Senior vibe: observability) - REMOVED AS REQUESTED
+  
   
   // 2. Persist to LocalStorage for the Internal Dashboard
   const history = JSON.parse(localStorage.getItem("portfolio_analytics") || "[]");

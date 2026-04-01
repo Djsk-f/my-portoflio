@@ -5,6 +5,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Projects({ isDetailed = false }: { isDetailed?: boolean }) {
   const t = useTranslations("Projects");
+  const tCommon = useTranslations("Common");
 
   const getProjectKey = (title: string) => {
     const t = title.toUpperCase();
@@ -40,7 +41,7 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
                 ) : (
                   <div className="project-image-placeholder">
                     <div className="placeholder-content">
-                      <code className="placeholder-text">IMAGE_NOT_FOUND_</code>
+                      <code className="placeholder-text">{tCommon("noImage")}</code>
                       <div className="glitch-line"></div>
                     </div>
                   </div>
@@ -75,7 +76,7 @@ export default function Projects({ isDetailed = false }: { isDetailed?: boolean 
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    <FaGithub size={14} /> GitHub
+                    <FaGithub size={14} /> {tCommon("github")}
                     <FaExternalLinkAlt size={10} />
                   </a>
                 )}

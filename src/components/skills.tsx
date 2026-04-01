@@ -50,7 +50,7 @@ export default function Skills({ isDetailed = false }: { isDetailed?: boolean })
                   className="skill-category"
                   style={{ color: categoryColor[skill.category] }}
                 >
-                  {skill.category}
+                  {t(`categories_names.${skill.category.toLowerCase()}`)}
                 </span>
               </div>
               <span className="skill-percentage">{skill.level}%</span>
