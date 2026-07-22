@@ -1,74 +1,80 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   ABOUT PAGE — Fintech
+   ═══════════════════════════════════════════════════ */
+
 .about-page {
   padding-top: 140px;
-  padding-bottom: 80px;
+  padding-bottom: var(--space-20);
   min-height: 100vh;
 
   .about-detailed {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    
+
     .detailed-header {
-      margin-bottom: 4rem;
+      margin-bottom: var(--space-12);
       text-align: left;
-      
+
       h1 {
         @include hitech-text;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1.5rem;
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-4);
+      }
+
+      .system-label {
+        @include mono-label;
+        display: block;
+        margin-bottom: var(--space-4);
       }
     }
 
     .mission-philosophy {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 4rem;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
 
       .info-card {
-        @include tech-card;
-        padding: 2.5rem;
-        border: 1px solid var(--border-tech);
+        @include fintech-card;
+        padding: var(--space-8);
 
         h3 {
-          font-family: var(--font-mono);
-          color: var(--accent-primary);
-          font-size: 1.25rem;
-          margin-bottom: 1.5rem;
-          letter-spacing: 0.1em;
+          @include mono-label;
+          font-size: var(--text-sm);
+          margin-bottom: var(--space-4);
         }
 
         p {
           color: var(--text-secondary);
           line-height: 1.8;
-          font-size: 1.1rem;
+          font-size: var(--text-base);
         }
       }
     }
 
     .journey-section {
-      margin-top: 5rem;
-      @include tech-card;
-      padding: 3rem;
-      background: rgba(var(--bg-secondary), 0.3);
+      margin-top: var(--space-12);
+      @include fintech-card;
+      padding: var(--space-8);
 
       h3 {
         @include hitech-text;
-        font-size: 2rem;
-        margin-bottom: 2rem;
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-6);
         text-align: center;
       }
 
       .journey-text {
-        max-width: 800px;
+        max-width: 750px;
         margin: 0 auto;
         color: var(--text-secondary);
-        font-size: 1.2rem;
+        font-size: var(--text-base);
         line-height: 1.8;
-        
+
         p {
-          margin-bottom: 1.5rem;
+          margin-bottom: var(--space-4);
         }
       }
     }

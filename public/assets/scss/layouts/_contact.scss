@@ -1,61 +1,70 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   CONTACT / FOOTER — Fintech Layout
+   ═══════════════════════════════════════════════════ */
+
 .contact-footer {
-  padding: 6rem 0 3rem;
-  border-top: 1px solid var(--border-tech);
+  padding: var(--space-20) 0 var(--space-8);
+  border-top: 1px solid var(--border-default);
 }
 
 .footer-content {
-  @include tech-card;
+  @include fintech-card-static;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; // Align with margin line
-  gap: 2.5rem;
-  padding: 5rem 4rem;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-10) var(--space-10);
   text-align: left;
-  background: rgba(255, 255, 255, 0.01);
 }
 
 .footer-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 2rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
   font-weight: 900;
   letter-spacing: -0.05em;
   color: var(--text-primary);
+
+  .dot {
+    color: var(--accent-primary);
+  }
 }
 
 .footer-tagline {
   color: var(--text-secondary);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
   max-width: 400px;
 }
 
 .footer-links {
   display: flex;
-  gap: 2.5rem;
+  gap: var(--space-6);
 }
 
 .social-link {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   color: var(--text-secondary);
-  transition: all 0.3s;
-  
+  transition: all var(--transition-fast);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+
   &:hover {
     color: var(--accent-primary);
-    transform: translateY(-3px);
+    background: var(--accent-subtle);
     filter: drop-shadow(0 0 8px var(--accent-glow));
   }
 }
 
 .footer-bottom {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-tech);
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
   width: 100%;
-  color: var(--text-secondary);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }

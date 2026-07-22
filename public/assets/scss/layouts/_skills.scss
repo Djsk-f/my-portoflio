@@ -1,63 +1,96 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   SKILLS — Fintech Layout
+   ═══════════════════════════════════════════════════ */
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2.5rem;
-  padding: 0.5rem 0;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1);
+  padding: 0;
 }
 
 .skill-item {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--accent-subtle);
+    border-color: var(--border-accent);
+  }
 
   .skill-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
 
     .skill-name-row {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 1px;
+      min-width: 0;
     }
 
     .skill-name {
       font-weight: 600;
       color: var(--text-primary);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .skill-category {
-      font-size: 0.65rem;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.8;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
     }
 
     .skill-percentage {
-      font-size: 0.8rem;
+      font-size: 0.65rem;
       color: var(--accent-primary);
       opacity: 0.8;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       flex-shrink: 0;
+      font-weight: 700;
     }
   }
 
   .skill-bar-bg {
-    height: 4px;
-    background: var(--border-tech);
-    border-radius: 2px;
+    height: 2px;
+    background: var(--border-default);
+    border-radius: 1px;
     overflow: hidden;
+    position: relative;
   }
 
   .skill-bar-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    box-shadow: 0 0 15px var(--accent-glow);
+    border-radius: 1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .skill-bar-glow {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary), transparent);
+    border-radius: 1px;
+    opacity: 0.25;
+    filter: blur(3px);
+    z-index: 0;
   }
 }

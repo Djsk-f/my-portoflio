@@ -1,47 +1,38 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   SEND MAIL — Fintech Layout
+   ═══════════════════════════════════════════════════ */
+
 .send-mail-container {
-  padding: 1.5rem;
+  padding: var(--space-6);
 }
 
 .form-group {
   margin-bottom: 0;
-  
+
   label {
+    @include mono-label;
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-2);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: var(--accent-primary);
-    margin-bottom: 0.5rem;
   }
 }
 
 .tech-input {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-tech);
-  padding: 1rem;
-  color: var(--text-primary);
-  font-family: inherit;
-  transition: all 0.3s;
-  
-  &:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 10px var(--accent-glow);
-  }
+  @include fintech-input;
 }
 
 .tech-textarea {
   min-height: 120px;
   resize: vertical;
+  font-family: inherit;
 }
 
 .chars-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
   text-align: right;
-  margin-top: 0.5rem;
+  margin-top: var(--space-2);
 }

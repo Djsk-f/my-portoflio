@@ -1,48 +1,143 @@
 @use 'fonts' as *;
 
 :root {
-  /* Premium Hi-Tech Light (Blueprint) */
-  --bg-primary: #f0f4f8;
+  /* ─── Fintech Light ─── */
+  --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
-  --accent-primary: #1d4ed8;
-  --accent-secondary: #3b82f6;
-  --accent-glow: rgba(29, 78, 216, 0.12);
-  --text-primary: #020617;
-  --text-secondary: #334155;
-  
-  --grid-color: rgba(29, 78, 216, 0.05);
-  --grid-line: rgba(29, 78, 216, 0.15);
-  --border-tech: rgba(15, 23, 42, 0.08);
-  --orb-1: rgba(37, 99, 235, 0.05);
-  --orb-2: rgba(99, 102, 241, 0.05);
-  
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(15, 23, 42, 0.06);
+  --bg-tertiary: #f1f5f9;
+
+  --accent-primary: #2563eb;
+  --accent-secondary: #7c3aed;
+  --accent-tertiary: #0891b2;
+  --accent-glow: rgba(37, 99, 235, 0.08);
+  --accent-subtle: rgba(37, 99, 235, 0.04);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+
+  --border-default: rgba(15, 23, 42, 0.08);
+  --border-subtle: rgba(15, 23, 42, 0.04);
+  --border-accent: rgba(37, 99, 235, 0.2);
+
+  --surface-glass: rgba(255, 255, 255, 0.72);
+  --surface-elevated: #ffffff;
+
+  --color-success: #059669;
+  --color-success-glow: rgba(5, 150, 105, 0.15);
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* ─── Fintech Ticker ─── */
+  --ticker-bg: #ffffff;
+  --ticker-border: rgba(15, 23, 42, 0.06);
+
+  --grid-line: rgba(37, 99, 235, 0.06);
+  --orb-1: rgba(37, 99, 235, 0.04);
+  --orb-2: rgba(124, 58, 237, 0.04);
+
   --glass-blur: 16px;
 
-  --fs-base: 62.5%;
-  --padding: 40px;
+  /* ─── Typography ─── */
+  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  --font-hitech: 'Space Grotesk', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.3125rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: clamp(2.5rem, 5vw, 3.75rem);
+
+  /* ─── Spacing (8px base) ─── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ─── Border Radius ─── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 100px;
+
+  /* ─── Shadows ─── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  --shadow-glow-lg: 0 0 40px var(--accent-glow);
+
+  /* ─── Transitions ─── */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ─── Z-Index ─── */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-header: 1000;
+  --z-modal: 9999;
+  --z-overlay: 99999;
+
+  /* ─── Legacy aliases (migration) ─── */
+  --padding: var(--space-16);
+  --fs-base: 62.5%;
+  --font-hitech: var(--font-sans);
 }
 
 [data-theme='dark'] {
-  /* Premium Hi-Tech Dark (Deep Carbon) */
-  --bg-primary: #010309;
-  --bg-secondary: #050914;
-  --accent-primary: #00e5ff;
-  --accent-secondary: #a855f7;
-  --accent-glow: rgba(0, 229, 255, 0.2);
-  --text-primary: #f8fafc;
-  --text-secondary: #a1a1aa;
+  /* ─── Fintech Dark ─── */
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #0f1629;
+  --bg-tertiary: #141d33;
 
-  --grid-color: rgba(0, 229, 255, 0.04);
-  --grid-line: rgba(0, 229, 255, 0.15);
-  --border-tech: rgba(0, 229, 255, 0.12);
-  --orb-1: rgba(0, 229, 255, 0.12);
-  --orb-2: rgba(168, 85, 247, 0.12);
-  
-  --glass-bg: rgba(5, 9, 20, 0.8);
-  --glass-border: rgba(0, 229, 255, 0.15);
+  --accent-primary: #3b82f6;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #06b6d4;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --accent-subtle: rgba(59, 130, 246, 0.06);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  --border-default: rgba(148, 163, 184, 0.08);
+  --border-subtle: rgba(148, 163, 184, 0.04);
+  --border-accent: rgba(59, 130, 246, 0.25);
+
+  --surface-glass: rgba(15, 22, 41, 0.8);
+  --surface-elevated: #141d33;
+
+  --color-success: #34d399;
+  --color-success-glow: rgba(52, 211, 153, 0.15);
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* ─── Fintech Ticker ─── */
+  --ticker-bg: #0f1629;
+  --ticker-border: rgba(148, 163, 184, 0.06);
+
+  --grid-line: rgba(59, 130, 246, 0.06);
+  --orb-1: rgba(59, 130, 246, 0.08);
+  --orb-2: rgba(139, 92, 246, 0.08);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  --shadow-glow-lg: 0 0 40px var(--accent-glow);
 }

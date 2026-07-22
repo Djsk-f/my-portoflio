@@ -1,40 +1,39 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   PROJECTS PAGE — Fintech
+   ═══════════════════════════════════════════════════ */
+
 .projects-page {
   padding-top: 140px;
-  padding-bottom: 80px;
+  padding-bottom: var(--space-20);
   min-height: 100vh;
 
   .projects-detailed {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 
     h1 {
       @include hitech-text;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 1.5rem;
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
     }
 
     .header-description {
-      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-size: var(--text-base);
       color: var(--text-secondary);
       line-height: 1.6;
-      max-width: 80ch;
-      margin-bottom: 4rem;
+      max-width: 70ch;
+      margin-bottom: var(--space-12);
       opacity: 0.8;
     }
   }
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.1); }
-  }
-
   .project-showcase {
-    margin-top: 4rem;
+    margin-top: var(--space-10);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: var(--space-6);
 
     @media (max-width: 1024px) {
       grid-template-columns: 1fr;
@@ -42,25 +41,21 @@
   }
 
   .project-entry {
-    @include tech-card;
+    @include fintech-card;
     padding: 0;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid var(--glass-border);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    background: var(--glass-bg);
 
     &:hover {
-      transform: translateY(-10px);
-      border-color: var(--accent-primary);
-      box-shadow: 0 30px 60px -15px var(--accent-glow);
-      
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow-lg);
+
       .entry-media img {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
-      
+
       .entry-media .entry-overlay {
         opacity: 1;
       }
@@ -68,10 +63,10 @@
 
     .entry-media {
       width: 100%;
-      height: 240px;
+      height: 220px;
       position: relative;
       overflow: hidden;
-      background: #000;
+      background: var(--bg-tertiary);
 
       .media-container {
         width: 100%;
@@ -81,14 +76,14 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform var(--transition-slow);
         }
       }
 
       .project-image-placeholder {
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #050914 0%, #0a1229 100%);
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -100,7 +95,7 @@
           inset: 0;
           background-image: radial-gradient(var(--accent-primary) 1px, transparent 1px);
           background-size: 20px 20px;
-          opacity: 0.1;
+          opacity: 0.08;
         }
 
         .placeholder-content {
@@ -109,14 +104,12 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
+          gap: var(--space-3);
 
           .placeholder-text {
-            font-family: var(--font-mono);
+            @include mono-label;
             font-size: 0.6rem;
-            color: var(--accent-primary);
-            letter-spacing: 0.3em;
-            opacity: 0.4;
+            opacity: 0.5;
           }
         }
       }
@@ -124,74 +117,65 @@
       .entry-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
         display: flex;
         align-items: flex-end;
-        padding: 1.5rem;
+        padding: var(--space-5);
         opacity: 0;
-        transition: opacity 0.3s ease;
-        
+        transition: opacity var(--transition-base);
+
         .stack-preview {
           display: flex;
-          gap: 0.5rem;
+          gap: var(--space-2);
           flex-wrap: wrap;
-          
+
           .tech-tag {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
+            @include fintech-tag;
+            font-size: 0.6rem;
             color: #fff;
-            padding: 2px 8px;
-            background: rgba(var(--accent-primary-rgb), 0.3);
-            border: 1px solid var(--accent-primary);
-            border-radius: 4px;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
           }
         }
       }
 
       .metadata {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: var(--space-3);
+        right: var(--space-3);
         z-index: 2;
 
         .version-badge {
-          font-family: var(--font-mono);
-          font-size: 0.6rem;
-          background: rgba(0,0,0,0.6);
+          @include fintech-badge;
+          background: rgba(0, 0, 0, 0.5);
           backdrop-filter: blur(8px);
-          color: var(--accent-primary);
-          padding: 3px 10px;
-          border-radius: 4px;
           border: 1px solid var(--accent-glow);
         }
       }
     }
 
     .entry-content {
-      padding: 2rem;
+      padding: var(--space-6);
       display: flex;
       flex-direction: column;
       flex: 1;
 
       .content-header {
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-4);
 
         .label {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: var(--accent-primary);
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
+          @include mono-label;
+          font-size: 0.6rem;
           display: block;
-          margin-bottom: 0.5rem;
+          margin-bottom: var(--space-2);
           opacity: 0.6;
         }
 
         h2 {
           font-family: var(--font-mono);
-          font-size: 1.8rem;
+          font-size: var(--text-xl);
           font-weight: 800;
-          margin-bottom: 0.5rem;
+          margin-bottom: var(--space-1);
           color: var(--text-primary);
           line-height: 1.2;
           letter-spacing: -0.02em;
@@ -200,11 +184,11 @@
         .role-info {
           display: flex;
           align-items: center;
-          gap: 0.6rem;
-          font-size: 0.9rem;
+          gap: var(--space-2);
+          font-size: var(--text-sm);
           color: var(--text-secondary);
           font-family: var(--font-mono);
-          
+
           svg {
             color: var(--accent-primary);
             opacity: 0.8;
@@ -213,10 +197,10 @@
       }
 
       .desc {
-        font-size: 0.95rem;
+        font-size: var(--text-sm);
         color: var(--text-secondary);
         line-height: 1.6;
-        margin-bottom: 2rem;
+        margin-bottom: var(--space-6);
         display: -webkit-box;
         -webkit-line-clamp: 3;
         line-clamp: 3;
@@ -228,73 +212,47 @@
       .stack-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 2rem;
+        gap: var(--space-2);
+        margin-bottom: var(--space-6);
 
         .tech-tag {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: var(--text-secondary);
-          border: 1px solid var(--border-tech);
-          padding: 0.25rem 0.75rem;
-          border-radius: 4px;
-          background: rgba(255,255,255,0.02);
-          transition: all 0.3s ease;
-
-          &:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            background: var(--accent-glow);
-          }
+          @include fintech-tag;
         }
       }
 
       .actions {
         display: flex;
-        gap: 1rem;
+        gap: var(--space-3);
         margin-top: auto;
-        
+
         .main-action {
           flex: 1;
+          @include fintech-btn-primary;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.6rem;
-          background: var(--accent-primary);
-          color: #fff;
-          font-family: var(--font-mono);
-          font-size: 0.85rem;
-          font-weight: 800;
-          padding: 0.8rem;
-          border-radius: 8px;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-
-          &:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: translateY(-2px);
-          }
+          gap: var(--space-2);
+          padding: var(--space-3);
+          font-size: var(--text-sm);
         }
 
         .icon-action {
-          width: 44px;
-          height: 44px;
-          border-radius: 8px;
-          border: 1px solid var(--border-tech);
+          width: 40px;
+          height: 40px;
+          border-radius: var(--radius-md);
+          border: 1px solid var(--border-default);
           color: var(--text-primary);
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s ease;
+          transition: all var(--transition-fast);
           background: transparent;
+          cursor: pointer;
 
           &:hover {
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-            background: var(--accent-glow);
-            transform: translateY(-2px);
+            background: var(--accent-subtle);
           }
         }
       }

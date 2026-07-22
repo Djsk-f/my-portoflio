@@ -1,33 +1,32 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   ABOUT — Fintech Layout
+   ═══════════════════════════════════════════════════ */
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 4rem;
+  gap: var(--space-10);
   align-items: flex-start;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--space-6);
   }
 }
 
 .about-bio {
   .bio-intro {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin-bottom: 2rem;
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    margin-bottom: var(--space-6);
     color: var(--text-primary);
 
     .hello-tag {
-      display: inline-block;
-      padding: 0.2rem 0.8rem;
-      background: var(--accent-glow);
-      color: var(--accent-primary);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      border-radius: 4px;
-      margin-right: 0.5rem;
+      @include fintech-badge;
+      margin-right: var(--space-2);
+      vertical-align: middle;
     }
 
     .highlight {
@@ -39,8 +38,8 @@
   .bio-details {
     p {
       color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
+      margin-bottom: var(--space-4);
+      line-height: 1.7;
     }
   }
 }
@@ -48,37 +47,61 @@
 .about-stats-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-4);
 
-  .stat-card {
-    padding: 1.5rem;
-    @include soft-glass;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .fintech-stat {
+    @include fintech-stat;
 
-    &:hover {
-      border-color: var(--accent-primary);
-      background: var(--accent-glow);
-      transform: scale(1.02);
+    .live-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--color-success);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--color-success);
+      animation: live-pulse 2s infinite;
     }
 
     .stat-value {
-      font-size: 2.5rem;
+      font-family: var(--font-mono);
+      font-size: var(--text-3xl);
       font-weight: 800;
       color: var(--accent-primary);
-      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+    }
+
+    .stat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .stat-label {
-      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    .stat-footer {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+
+      .stat-change {
+        font-weight: 700;
+
+        &.positive { color: var(--color-success); }
+        &.neutral { color: var(--text-tertiary); }
+      }
+
+      .stat-suffix {
+        color: var(--text-tertiary);
+        letter-spacing: 0.05em;
+      }
     }
   }
 
@@ -86,9 +109,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    .stat-card {
+
+    .fintech-stat {
       flex: 1;
-      min-width: 120px;
+      min-width: 140px;
     }
   }
 }

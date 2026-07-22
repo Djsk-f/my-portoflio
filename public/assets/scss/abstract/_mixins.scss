@@ -1,3 +1,9 @@
+/* ═══════════════════════════════════════════════════
+   FINTECH DESIGN SYSTEM — Mixins
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Background Effects ─── */
+
 @mixin line-grid {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px);
@@ -29,7 +35,6 @@
     z-index: -2;
   }
 
-  /* Drifting Orbs */
   .orb {
     position: fixed;
     border-radius: 50%;
@@ -61,29 +66,204 @@
 }
 
 @keyframes drift {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(50px, 50px) scale(1.1); }
+}
 
-  to {
-    transform: translate(50px, 50px) scale(1.1);
+/* ─── Fintech Card System ─── */
+
+@mixin fintech-card($elevated: false) {
+  @if $elevated {
+    background: var(--surface-elevated);
+  } @else {
+    background: var(--surface-glass);
   }
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@mixin fintech-card-static {
+  background: var(--surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
 }
 
 @mixin soft-glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  // border: 1px solid var(--glass-border);
-  // box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  @include fintech-card;
+}
+
+@mixin tech-card {
+  @include fintech-card;
+}
+
+@mixin premium-glass {
+  background: var(--surface-elevated);
+  backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Fintech Badge ─── */
+
+@mixin fintech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-accent);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Fintech Tag ─── */
+
+@mixin fintech-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  background: var(--accent-subtle);
+  border: 1px solid var(--border-default);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
 
   &:hover {
     border-color: var(--accent-primary);
-    box-shadow: 0 20px 60px -10px var(--accent-glow);
-    transform: translateY(-5px);
+    color: var(--accent-primary);
+    background: var(--accent-glow);
   }
 }
+
+/* ─── Fintech Input ─── */
+
+@mixin fintech-input {
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-base);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+}
+
+/* ─── Fintech Button ─── */
+
+@mixin fintech-btn-primary {
+  padding: var(--space-3) var(--space-8);
+  background: var(--accent-primary);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-glow);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin fintech-btn-secondary {
+  padding: var(--space-3) var(--space-8);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    background: var(--accent-subtle);
+    border-color: var(--accent-primary);
+  }
+}
+
+/* ─── Fintech Section ─── */
+
+@mixin fintech-section {
+  padding: var(--space-16) 0;
+
+  @media (max-width: 768px) {
+    padding: var(--space-10) 0;
+  }
+}
+
+/* ─── Fintech Divider ─── */
+
+@mixin fintech-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-default), transparent);
+}
+
+/* ─── Fintech Grid ─── */
+
+@mixin fintech-grid($min: 280px, $gap: var(--space-8)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: $gap;
+}
+
+/* ─── Text Utilities ─── */
+
+@mixin hitech-text {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+}
+
+/* ─── Morphing Blob (profile) ─── */
 
 @mixin morphing-blob {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
@@ -91,42 +271,242 @@
 }
 
 @keyframes morph {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+}
 
-  0%,
-  100% {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
+/* ═══════════════════════════════════════════════════
+   FINTECH ENHANCED — Visual Effects
+   ═══════════════════════════════════════════════════ */
 
-  25% {
-    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-  }
+/* ─── Scanline Overlay ─── */
 
-  50% {
-    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-  }
+@mixin scanlines {
+  position: relative;
 
-  75% {
-    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.015) 2px,
+      rgba(0, 0, 0, 0.015) 4px
+    );
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 1;
   }
 }
 
-@mixin tech-card {
-  @include soft-glass;
+[data-theme='dark'] {
+  .scanlines::after,
+  .bento-item.scanlines::after {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.008) 2px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+  }
 }
 
-@mixin premium-glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+/* ─── Ticker Bar ─── */
+
+@mixin ticker-bar {
+  width: 100%;
+  overflow: hidden;
+  background: var(--ticker-bg);
+  border-bottom: 1px solid var(--ticker-border);
+  padding: var(--space-2) 0;
+  position: relative;
+
+  .ticker-track {
+    display: flex;
+    gap: var(--space-10);
+    animation: ticker-scroll 30s linear infinite;
+    width: max-content;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+
+    .ticker-label {
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ticker-value {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .ticker-change {
+      font-weight: 600;
+      font-size: 0.6rem;
+
+      &.positive { color: var(--color-success); }
+      &.negative { color: var(--color-error); }
+      &.neutral { color: var(--text-tertiary); }
+    }
+
+    .ticker-separator {
+      width: 3px;
+      height: 3px;
+      background: var(--border-default);
+      border-radius: 50%;
+      margin-left: var(--space-6);
+    }
+  }
 }
 
-@mixin hitech-text {
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Live Indicator ─── */
+
+@mixin live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-mono);
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(to bottom right, var(--text-primary), var(--accent-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 8px var(--accent-glow));
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-success);
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--color-success);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-success);
+    animation: live-pulse 2s infinite;
+  }
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--color-success); }
+  50% { opacity: 0.5; box-shadow: 0 0 12px var(--color-success); }
+}
+
+/* ─── Stat Card Fintech ─── */
+
+@mixin fintech-stat {
+  background: var(--surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  // Top accent line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--color-success));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  &:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-glow);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .stat-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+
+    .stat-change {
+      font-weight: 700;
+
+      &.positive { color: var(--color-success); }
+      &.neutral { color: var(--text-tertiary); }
+    }
+
+    .stat-suffix {
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+/* ─── Fintech Glow Border (on hover) ─── */
+
+@mixin glow-border {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--accent-primary), var(--color-success), var(--accent-secondary));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-base);
+  }
+
+  &:hover::before {
+    opacity: 0.15;
+  }
 }

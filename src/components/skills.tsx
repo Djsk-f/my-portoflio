@@ -2,20 +2,14 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const allSkills = [
-  { name: "React", level: 95, category: "Frontend" },
-  { name: "Next.js", level: 90, category: "Frontend" },
+  { name: "React / Next.js", level: 95, category: "Frontend" },
+  { name: "TypeScript", level: 92, category: "Language" },
   { name: "Angular", level: 85, category: "Frontend" },
   { name: "React Native", level: 90, category: "Frontend" },
-  { name: "TypeScript", level: 92, category: "Language" },
-  { name: "Node.js", level: 88, category: "Backend" },
-  { name: "NestJS", level: 85, category: "Backend" },
-  { name: "Java Spring Boot", level: 82, category: "Backend" },
-  { name: "SQL", level: 88, category: "Backend" },
+  { name: "Node.js / NestJS", level: 88, category: "Backend" },
+  { name: "PostgreSQL / SQL", level: 88, category: "Backend" },
   { name: "MongoDB", level: 82, category: "Backend" },
-  { name: "MySQL", level: 85, category: "Backend" },
-  { name: "Ionic", level: 88, category: "Frontend" },
-  { name: "Docker", level: 80, category: "DevOps" },
-  { name: "Linux", level: 85, category: "DevOps" },
+  { name: "Docker / Linux", level: 83, category: "DevOps" },
 ];
 
 const categoryColor: Record<string, string> = {
@@ -23,6 +17,13 @@ const categoryColor: Record<string, string> = {
   Backend: "var(--accent-secondary)",
   Language: "#22d3ee",
   DevOps: "#a3e635",
+};
+
+const categoryKeyMap: Record<string, string> = {
+  Frontend: "fe",
+  Backend: "be",
+  Language: "language",
+  DevOps: "devops",
 };
 
 export default function Skills({ isDetailed = false }: { isDetailed?: boolean }) {
@@ -50,7 +51,7 @@ export default function Skills({ isDetailed = false }: { isDetailed?: boolean })
                   className="skill-category"
                   style={{ color: categoryColor[skill.category] }}
                 >
-                  {t(`categories_names.${skill.category.toLowerCase()}`)}
+                  {t(`categories_names.${categoryKeyMap[skill.category]}`)}
                 </span>
               </div>
               <span className="skill-percentage">{skill.level}%</span>
@@ -64,6 +65,7 @@ export default function Skills({ isDetailed = false }: { isDetailed?: boolean })
                 viewport={{ once: true }}
                 style={{ background: `linear-gradient(90deg, ${categoryColor[skill.category]}, var(--accent-glow))` }}
               />
+              <div className="skill-bar-glow" style={{ width: `${skill.level}%` }} />
             </div>
           </motion.div>
         ))}

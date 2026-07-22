@@ -1,55 +1,59 @@
 @use '../abstract' as *;
 
+/* ═══════════════════════════════════════════════════
+   CONTACT PAGE — Fintech
+   ═══════════════════════════════════════════════════ */
+
 .contact-page {
   padding-top: 140px;
-  padding-bottom: 80px;
+  padding-bottom: var(--space-20);
   min-height: 100vh;
 
   .contact-detailed {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 
     .contact-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: var(--space-12);
 
       h1 {
         @include hitech-text;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1.5rem;
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-4);
       }
 
       p {
         color: var(--text-secondary);
-        font-size: 1.1rem;
+        font-size: var(--text-base);
         line-height: 1.6;
       }
     }
 
     .contact-card {
-      @include tech-card;
-      padding: 3.5rem;
-      border: 1px solid var(--border-tech);
-      background: rgba(var(--bg-secondary), 0.5);
-      
+      @include fintech-card;
+      padding: var(--space-10);
+      text-align: center;
+
       .status-indicator {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: var(--space-3);
         font-family: var(--font-mono);
         color: var(--accent-primary);
-        font-size: 0.8rem;
-        margin-bottom: 2rem;
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-6);
         justify-content: center;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.15em;
+        font-weight: 600;
 
         &::before {
           content: '';
-          width: 8px;
-          height: 8px;
-          background: var(--accent-primary);
+          width: 6px;
+          height: 6px;
+          background: var(--color-success);
           border-radius: 50%;
-          box-shadow: 0 0 10px var(--accent-primary);
+          box-shadow: 0 0 8px var(--color-success);
           animation: pulse 2s infinite;
         }
       }
