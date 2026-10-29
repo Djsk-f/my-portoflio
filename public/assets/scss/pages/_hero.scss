@@ -1,7 +1,7 @@
 @use '../abstract' as *;
 
 /* ═══════════════════════════════════════════════════
-   HERO — Fintech Page
+   HERO — Cyber-Tech Select Player
    ═══════════════════════════════════════════════════ */
 
 .hero {
@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 32px;
+  padding-top: 110px;
 
   &__content {
     display: grid;
@@ -73,6 +73,8 @@
       line-height: 1.6;
       margin-bottom: var(--space-10);
       max-width: 500px;
+      border-left: 2px solid var(--accent-primary);
+      padding-left: var(--space-4);
 
       @media (max-width: 1024px) {
         margin: 0 auto var(--space-8);
@@ -101,13 +103,15 @@
 
   &__image-wrapper {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     position: relative;
 
     .profile-container {
       position: relative;
-      width: 400px;
-      height: 400px;
+      width: 380px;
+      height: 380px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -124,12 +128,25 @@
     }
 
     .profile-blob {
-      width: 85%;
-      height: 85%;
-      @include morphing-blob;
+      width: 80%;
+      height: 80%;
       overflow: hidden;
-      @include premium-glass;
       z-index: 2;
+      position: relative;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border-accent);
+      background: var(--bg-tertiary);
+      box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.05),
+        0 0 40px rgba(59, 130, 246, 0.08),
+        var(--shadow-lg);
+
+      [data-theme='dark'] & {
+        box-shadow:
+          0 0 0 4px rgba(59, 130, 246, 0.06),
+          0 0 50px rgba(59, 130, 246, 0.1),
+          0 20px 60px rgba(0, 0, 0, 0.4);
+      }
 
       img {
         width: 100%;
@@ -137,22 +154,118 @@
         object-fit: cover;
         filter: contrast(1.05) brightness(1.05);
       }
+
+      /* Scanline overlay */
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.015) 2px,
+          rgba(0, 0, 0, 0.015) 4px
+        );
+        pointer-events: none;
+        border-radius: inherit;
+      }
+    }
+
+    /* Corner brackets */
+    .profile-container::before,
+    .profile-container::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent-primary);
+      opacity: 0.3;
+      z-index: 3;
+    }
+
+    .profile-container::before {
+      top: 5%;
+      left: 5%;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .profile-container::after {
+      bottom: 5%;
+      right: 5%;
+      border-left: none;
+      border-top: none;
+    }
+
+    .corner-tr,
+    .corner-bl {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent-primary);
+      opacity: 0.3;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .corner-tr {
+      top: 5%;
+      right: 5%;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .corner-bl {
+      bottom: 5%;
+      left: 5%;
+      border-right: none;
+      border-top: none;
     }
 
     .tech-ring {
       position: absolute;
       inset: 0;
       border: 1px dashed var(--accent-primary);
-      border-radius: 50%;
-      opacity: 0.15;
-      animation: rotate 60s linear infinite;
+      border-radius: var(--radius-lg);
+      opacity: 0.12;
+      animation: rotate 40s linear infinite;
+      pointer-events: none;
+
+      [data-theme='dark'] & {
+        opacity: 0.18;
+        border-color: var(--accent-primary);
+      }
 
       &.second {
-        inset: 20px;
+        inset: 16px;
         border: 1px solid var(--accent-secondary);
-        opacity: 0.08;
-        animation-duration: 40s;
+        opacity: 0.06;
+        animation-duration: 30s;
         animation-direction: reverse;
+      }
+    }
+
+    .system-status-label {
+      margin-top: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-success);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: var(--color-success);
+        border-radius: 50%;
+        box-shadow: 0 0 6px var(--color-success);
+        animation: live-pulse 2s infinite;
       }
     }
   }
@@ -166,6 +279,11 @@
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--color-success); }
+  50% { opacity: 0.5; box-shadow: 0 0 12px var(--color-success); }
 }
 
 /* ─── Buttons ─── */

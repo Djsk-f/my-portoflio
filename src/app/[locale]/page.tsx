@@ -2,31 +2,37 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Code2, Cpu, Database, Zap, Plus, TrendingUp, Activity, BarChart3, DollarSign } from "lucide-react";
+import { Plus, TrendingUp, Activity, BarChart3, DollarSign, Building2, Layers, Container, Bot } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import About from "@/components/about";
 import Skills from "@/components/skills";
 import Projects from "@/components/project";
 import Experience from "@/components/experience";
+import GithubActivity from "@/components/GithubActivity";
+import LinkedinPosts from "@/components/LinkedinPosts";
+import linkedinPosts from "@/data/linkedin-posts.json";
 import SendMailModal from "@/components/sendMail";
 import { uploadMyCv } from "../services/commonservice";
-import { useTranslations } from "next-intl";
+import { liveProjectsCount } from "@/lib/projects";
+import { useLocale, useTranslations } from "next-intl";
 
+// Faits issus du CV et des projets ; pas de métriques inventées
 const tickerData = [
-  { label: "STACK", value: "TypeScript", change: "+2.4%", positive: true },
-  { label: "UPTIME", value: "99.9%", change: "STABLE", positive: true },
-  { label: "PROJECTS", value: "15+", change: "+3 THIS YEAR", positive: true },
-  { label: "REACT", value: "95%", change: "EXPERT", positive: true },
-  { label: "NODE.JS", value: "88%", change: "ADVANCED", positive: true },
-  { label: "DOCKER", value: "80%", change: "PROFICIENT", positive: true },
-  { label: "LATENCY", value: "<50ms", change: "OPTIMIZED", positive: true },
-  { label: "TESTS", value: "92%", change: "COVERAGE", positive: true },
+  { label: "BACKEND", value: "Java · Spring Boot", change: "NESTJS", positive: true },
+  { label: "FRONTEND", value: "React · Angular", change: "NEXT.JS", positive: true },
+  { label: "MOBILE", value: "Ionic", change: "REACT NATIVE", positive: true },
+  { label: "CLIENTS", value: "BCI · Ecobank", change: "CIMENCAM · CADYST", positive: true },
+  { label: "PROJECTS", value: String(liveProjectsCount()), change: "LIVE", positive: true },
+  { label: "EXPERIENCE", value: "3+", change: "YEARS", positive: true },
+  { label: "DEVOPS", value: "Docker", change: "PORTAINER · JENKINS", positive: true },
+  { label: "AI", value: "LLM · MCP", change: "AGENTS", positive: true },
 ];
 
 export default function Home() {
   const { scrollY } = useScroll();
   const [isMobile, setIsMobile] = React.useState(false);
   const t = useTranslations("Home");
+  const locale = useLocale();
 
   const backgroundY = useTransform(scrollY, [0, 500], [0, 50]);
   const bentoY1 = useTransform(scrollY, [0, 1000], [0, -80]);
@@ -91,7 +97,7 @@ export default function Home() {
 
               <div className="hero__actions">
                 <SendMailModal />
-                <button onClick={uploadMyCv} className="btn-secondary">
+                <button onClick={event => uploadMyCv(event, locale)} className="btn-secondary">
                   {t("deployResume")}
                 </button>
               </div>
@@ -109,7 +115,64 @@ export default function Home() {
                 </div>
                 <div className="tech-ring"></div>
                 <div className="tech-ring second"></div>
+                <span className="corner-tr" />
+                <span className="corner-bl" />
               </div>
+              <span className="system-status-label">SYSTEM ONLINE</span>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── WHY ME ─── */}
+      <section className="why-section">
+        <div className="modern-container">
+          <div className="why-grid">
+            <motion.div
+              className="why-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="why-icon"><Building2 size={20} /></div>
+              <h3>{t("why.clients.title")}</h3>
+              <p>{t("why.clients.desc")}</p>
+            </motion.div>
+
+            <motion.div
+              className="why-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="why-icon"><Layers size={20} /></div>
+              <h3>{t("why.fullstack.title")}</h3>
+              <p>{t("why.fullstack.desc")}</p>
+            </motion.div>
+
+            <motion.div
+              className="why-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="why-icon"><Container size={20} /></div>
+              <h3>{t("why.devops.title")}</h3>
+              <p>{t("why.devops.desc")}</p>
+            </motion.div>
+
+            <motion.div
+              className="why-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="why-icon"><Bot size={20} /></div>
+              <h3>{t("why.ai.title")}</h3>
+              <p>{t("why.ai.desc")}</p>
             </motion.div>
           </div>
         </div>
@@ -145,8 +208,24 @@ export default function Home() {
             </Link>
             <Projects />
           </motion.div>
+
+          <motion.div className="bento-item bento-activity scanlines">
+            <GithubActivity />
+          </motion.div>
+
+          <LinkedinBento />
         </div>
       </section>
     </div>
+  );
+}
+
+// La cellule n'existe que s'il y a des publications à afficher
+function LinkedinBento() {
+  if (linkedinPosts.length === 0) return null;
+  return (
+    <motion.div className="bento-item bento-linkedin scanlines">
+      <LinkedinPosts />
+    </motion.div>
   );
 }

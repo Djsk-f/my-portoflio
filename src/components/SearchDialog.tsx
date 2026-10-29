@@ -133,7 +133,7 @@ export default function SearchDialog() {
                     {results.map(({ item }, index) => (
                       <Link
                         key={index}
-                        href={item.type === 'project' ? `/projects#${item.id}` : item.href || '/skills'}
+                        href={item.type === 'project' ? `/projects/${item.id}` : item.href || '/skills'}
                         onClick={() => toggleSearch(false)}
                         className="result-item"
                       >

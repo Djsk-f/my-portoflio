@@ -50,22 +50,30 @@
 
   &.bento-about {
     grid-column: span 8;
-    grid-row: span 3;
+    grid-row: span 2;
   }
 
   &.bento-skills {
     grid-column: span 4;
-    grid-row: span 3;
+    grid-row: span 2;
   }
 
   &.bento-experience {
     grid-column: span 12;
-    grid-row: span 4;
+    grid-row: span 2;
   }
 
   &.bento-projects {
     grid-column: span 12;
     grid-row: span 6;
+  }
+
+  &.bento-activity {
+    grid-column: span 12;
+  }
+
+  &.bento-linkedin {
+    grid-column: span 12;
   }
 }
 

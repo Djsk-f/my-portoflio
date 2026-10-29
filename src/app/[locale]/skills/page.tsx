@@ -1,33 +1,22 @@
 "use client";
 
-import Skills from "@/components/skills";
-import { Code2, Server, Terminal } from "lucide-react";
+import { skillGroupIcons } from "@/components/skills";
+import { skillGroups } from "../../mocks/skills.mock";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function SkillsPage() {
   const t = useTranslations("Skills");
 
-  const categories = [
-    {
-      title: t("categories.fe.title"),
-      icon: <Code2 size={24} />,
-      skills: ["React / Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Chakra UI"],
-      description: t("categories.fe.desc")
-    },
-    {
-      title: t("categories.be.title"),
-      icon: <Server size={24} />,
-      skills: ["Node.js / Express", "NestJS", "PostgreSQL", "MongoDB", "Prisma / TypeORM"],
-      description: t("categories.be.desc")
-    },
-    {
-      title: t("categories.devops.title"),
-      icon: <Terminal size={24} />,
-      skills: ["Docker", "Git / GitHub Actions", "Vercel / AWS", "Unit Testing (Jest)", "Microservices"],
-      description: t("categories.devops.desc")
-    }
-  ];
+  const categories = skillGroups.map(group => {
+    const Icon = skillGroupIcons[group.id];
+    return {
+      title: t(`groups.${group.id}.title`),
+      icon: <Icon size={24} />,
+      skills: group.skills,
+      description: t(`groups.${group.id}.desc`),
+    };
+  });
 
   return (
     <div className="skills-page">
@@ -69,17 +58,6 @@ export default function SkillsPage() {
             ))}
           </div>
 
-          <motion.div 
-            className="mt-20"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="hitech-title text-2xl mb-10 text-center uppercase tracking-widest font-bold">
-              {t("statsTitle")}
-            </h3>
-            <Skills isDetailed />
-          </motion.div>
         </section>
       </div>
     </div>

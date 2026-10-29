@@ -1,0 +1,50 @@
+# Ajoute un post LinkedIn au portfolio depuis GitHub (web ou appli mobile) :
+# Actions > « Ajouter un post LinkedIn » > Run workflow, coller le lien du post.
+# Le commit déclenche le redéploiement Vercel.
+name: Ajouter un post LinkedIn
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Lien du post LinkedIn (menu « … » > « Copier le lien du post »)"
+        required: true
+      excerpt:
+        description: "Phrase d'accroche (facultative)"
+        required: false
+
+permissions:
+  contents: write
+
+# Deux ajouts lancés coup sur coup s'exécutent l'un après l'autre
+concurrency:
+  group: linkedin-post
+  cancel-in-progress: false
+
+jobs:
+  add-post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Actions épinglées sur un commit : un tag déplacé ne peut pas injecter de code
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+
+      # Les entrées passent par l'environnement, jamais interpolées dans le script shell
+      - name: Ajouter le post
+        env:
+          POST_URL: ${{ inputs.url }}
+          POST_EXCERPT: ${{ inputs.excerpt }}
+        run: node scripts/add-linkedin-post.mjs "$POST_URL" "$POST_EXCERPT"
+
+      - name: Commiter
+        run: |
+          git diff --quiet src/data/linkedin-posts.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/linkedin-posts.json
+          git commit -m "content: ajout d'un post LinkedIn"
+          git push

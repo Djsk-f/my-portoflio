@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "activity": "node scripts/collect-activity.mjs ..",
+    "linkedin:add": "node scripts/add-linkedin-post.mjs"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.8",

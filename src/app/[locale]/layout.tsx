@@ -10,7 +10,7 @@ import BackgroundEffect from "@/components/BackgroundEffect";
 import Loading from "../page/loading";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+// Fonts loaded via CSS fallback for reliability
 import SmoothScrollProvider from "@/components/SmoothScroll";
 import { ColorModeProvider } from "@/components/ui/color-mode";
 import { NextIntlClientProvider } from 'next-intl';
@@ -21,10 +21,6 @@ import "../globals.scss";
 
 
 
-const inter = Inter({ subsets: ["latin"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
-
 export async function generateMetadata({
   params
 }: {
@@ -33,20 +29,20 @@ export async function generateMetadata({
   const { locale } = await params;
   
   const titles: Record<string, string> = {
-    en: "Fidèle Loffou | Senior Full-Stack Developer Portfolio",
-    fr: "Fidèle Loffou | Portfolio Développeur Full-Stack Senior"
+    en: "Fidèle Loffou | Full Stack Developer & AI Engineer",
+    fr: "Fidèle Loffou | Développeur Full Stack & Ingénieur IA"
   };
   
   const descriptions: Record<string, string> = {
-    en: "Senior Full-Stack Developer specializing in Next.js, NestJS, and scalable cloud architectures. Discover my case studies and technical expertise.",
-    fr: "Développeur Full-Stack Senior spécialisé en Next.js, NestJS et architectures cloud scalables. Découvrez mes études de cas et mon expertise technique."
+    en: "Full Stack Developer & AI Engineer in Douala, Cameroon. Web, mobile and REST API applications for banking and industry with Java / Spring Boot, NestJS, React and Angular.",
+    fr: "Développeur Full Stack & Ingénieur IA à Douala, Cameroun. Applications web, mobiles et API REST pour la banque et l'industrie avec Java / Spring Boot, NestJS, React et Angular."
   };
 
   const title = titles[locale] || titles.fr;
   const description = descriptions[locale] || descriptions.fr;
 
   return {
-    metadataBase: new URL('https://fideleloffou.dev'),
+    metadataBase: new URL('https://my-portoflio-livid.vercel.app'),
     title,
     description,
     icons: {
@@ -68,7 +64,7 @@ export async function generateMetadata({
       description,
       type: 'website',
       locale: locale === 'en' ? 'en_US' : 'fr_FR',
-      url: 'https://fideleloffou.dev',
+      url: 'https://my-portoflio-livid.vercel.app',
       siteName: 'Fidèle Loffou Portfolio',
       images: [
         {
@@ -109,12 +105,9 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.className} ${spaceGrotesk.className} ${jetbrainsMono.className}`} suppressHydrationWarning>
-      <body suppressHydrationWarning style={{ 
-        margin: 0, 
-        "--font-sans": inter.style.fontFamily,
-        "--font-hitech": spaceGrotesk.style.fontFamily,
-        "--font-mono": jetbrainsMono.style.fontFamily,
+    <html lang={locale} suppressHydrationWarning>
+      <body suppressHydrationWarning style={{
+        margin: 0,
       } as React.CSSProperties}>
         <NextIntlClientProvider messages={messages}>
           <ColorModeProvider>

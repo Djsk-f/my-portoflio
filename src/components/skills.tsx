@@ -1,32 +1,17 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Bot, Code2, Database, Server, Terminal } from "lucide-react";
+import { skillGroups, SkillGroup } from "@/app/mocks/skills.mock";
 
-const allSkills = [
-  { name: "React / Next.js", level: 95, category: "Frontend" },
-  { name: "TypeScript", level: 92, category: "Language" },
-  { name: "Angular", level: 85, category: "Frontend" },
-  { name: "React Native", level: 90, category: "Frontend" },
-  { name: "Node.js / NestJS", level: 88, category: "Backend" },
-  { name: "PostgreSQL / SQL", level: 88, category: "Backend" },
-  { name: "MongoDB", level: 82, category: "Backend" },
-  { name: "Docker / Linux", level: 83, category: "DevOps" },
-];
-
-const categoryColor: Record<string, string> = {
-  Frontend: "var(--accent-primary)",
-  Backend: "var(--accent-secondary)",
-  Language: "#22d3ee",
-  DevOps: "#a3e635",
+export const skillGroupIcons: Record<SkillGroup["id"], typeof Server> = {
+  backend: Server,
+  frontend: Code2,
+  data: Database,
+  devops: Terminal,
+  ai: Bot,
 };
 
-const categoryKeyMap: Record<string, string> = {
-  Frontend: "fe",
-  Backend: "be",
-  Language: "language",
-  DevOps: "devops",
-};
-
-export default function Skills({ isDetailed = false }: { isDetailed?: boolean }) {
+export default function Skills() {
   const t = useTranslations("Skills");
 
   return (
@@ -34,41 +19,29 @@ export default function Skills({ isDetailed = false }: { isDetailed?: boolean })
       <h2 className="section-title">
         <span className="title-number">02</span> {t("expertise")}
       </h2>
-      <div className="skills-grid">
-        {allSkills.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-            viewport={{ once: true }}
-            className="skill-item"
-          >
-            <div className="skill-info">
-              <div className="skill-name-row">
-                <span className="skill-name">{skill.name}</span>
-                <span
-                  className="skill-category"
-                  style={{ color: categoryColor[skill.category] }}
-                >
-                  {t(`categories_names.${categoryKeyMap[skill.category]}`)}
-                </span>
+      <div className="skill-groups">
+        {skillGroups.map((group, index) => {
+          const Icon = skillGroupIcons[group.id];
+          return (
+            <motion.div
+              key={group.id}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="skill-group"
+            >
+              <span className="skill-group-title">
+                <Icon size={13} /> {t(`groups.${group.id}.title`)}
+              </span>
+              <div className="skill-chips">
+                {group.skills.map(skill => (
+                  <span key={skill} className="skill-chip">{skill}</span>
+                ))}
               </div>
-              <span className="skill-percentage">{skill.level}%</span>
-            </div>
-            <div className="skill-bar-bg">
-              <motion.div
-                className="skill-bar-fill"
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1.2, delay: 0.2, ease: "circOut" }}
-                viewport={{ once: true }}
-                style={{ background: `linear-gradient(90deg, ${categoryColor[skill.category]}, var(--accent-glow))` }}
-              />
-              <div className="skill-bar-glow" style={{ width: `${skill.level}%` }} />
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );

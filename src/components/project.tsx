@@ -1,90 +1,44 @@
-import { motion } from "framer-motion";
-import { projects } from "../app/mocks/projects.mock";
 import { useTranslations } from "next-intl";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { projects } from "../app/mocks/projects.mock";
+import { featuredProjects as featured, otherProjects as others } from "@/lib/projects";
+import ProjectCard from "./ProjectCard";
 
-export default function Projects({ isDetailed = false }: { isDetailed?: boolean }) {
+// Nombre de projets secondaires affichés sur l'accueil, le reste est sur /projects
+const HOME_GRID_LIMIT = 3;
+
+export default function Projects() {
   const t = useTranslations("Projects");
-  const tCommon = useTranslations("Common");
-
-  const getProjectKey = (title: string) => {
-    const t = title.toUpperCase();
-    if (t.includes("CADYST")) return "cadyst";
-    if (t.includes("FLY-BANKING")) return "fly";
-    if (t.includes("PANIER")) return "panier";
-    return "";
-  };
+  const hiddenCount = others.length - HOME_GRID_LIMIT;
 
   return (
     <div id="projects" className="projects-section">
       <h2 className="section-title">
         <span className="title-number">04</span> {t("title")}
       </h2>
-      <div className="projects-grid">
-        {projects.map((project, index) => {
-          const key = getProjectKey(project.title);
-          const roleText = key ? t(`items.${key}.role`) : project.role;
-          const descText = key ? t(`items.${key}.desc`) : project.description;
 
-          return (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="project-card"
-            >
-              <div className="project-image-box">
-                {project.image ? (
-                  <img src={project.image} alt={project.title} />
-                ) : (
-                  <div className="project-image-placeholder">
-                    <div className="placeholder-content">
-                      <code className="placeholder-text">{tCommon("noImage")}</code>
-                      <div className="glitch-line"></div>
-                    </div>
-                  </div>
-                )}
-                <div className="project-overlay">
-                  {project.link?.url && (
-                    <a
-                      href={project.link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary"
-                    >
-                      <FaGithub /> {t("viewGithub")}
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <div className="project-info">
-                <div className="project-tags">
-                  {project.stack.slice(0, 3).map(tech => (
-                    <span key={tech} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <h3 className="project-title">{key ? t(`items.${key}.title`) : project.title}</h3>
-                {roleText && <p className="project-role">{roleText}</p>}
-                <p className="project-description">{descText}</p>
-                {project.link?.url && (
-                  <a
-                    href={project.link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    <FaGithub size={14} /> {tCommon("github")}
-                    <FaExternalLinkAlt size={10} />
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          );
-        })}
+      <div className="projects-featured">
+        {featured.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} featured />
+        ))}
       </div>
+
+      <div className="projects-grid">
+        {others.slice(0, HOME_GRID_LIMIT).map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
+
+      {hiddenCount > 0 && (
+        <div className="projects-more">
+          <Link href="/projects" className="projects-more-btn">
+            {t("viewAll", { count: projects.length })}
+            <span className="more-count">+{hiddenCount}</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

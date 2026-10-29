@@ -6,6 +6,8 @@ export interface ProjectLink {
   icon?: IconType;
 }
 
+export type ProjectSector = "banking" | "industry" | "ecommerce";
+
 export interface Project {
   id: string; // Added for routing and search
   title: string;
@@ -28,4 +30,8 @@ export interface Project {
   
   // UI Flags
   featured?: boolean;
+  sector?: ProjectSector;
+  // Outil interne d'un client (back-office, administration, recette) : en production mais
+  // sans lien ni adresse publiés
+  confidential?: boolean;
 }

@@ -16,14 +16,32 @@
   "Home": {
     "status": "[LIVE] SYSTEM STATUS_OPTIMIZED",
     "name": "Fidèle Loffou",
-    "title": "Full-Stack Developer",
-    "subtitle": "Engineering high-precision digital ecosystems with a focus on impact, elegance, and technical excellence.",
+    "title": "Full Stack Developer & AI Engineer",
+    "subtitle": "Web, mobile and REST API applications for banking and industry — Java / Spring Boot, NestJS, React, Angular.",
     "deployResume": "DEPLOY RESUME",
     "aria": {
       "about": "Learn more about me",
       "skills": "See all my skills",
       "experience": "View my complete journey",
       "projects": "Discover all my projects"
+    },
+    "why": {
+      "clients": {
+        "title": "Banking & industry",
+        "desc": "Production systems for BCI Congo, Ecobank, Cimencam and Cadyst Group."
+      },
+      "fullstack": {
+        "title": "End-to-end Full Stack",
+        "desc": "Java / Spring Boot and NestJS APIs, React and Angular front ends, Ionic and React Native mobile apps."
+      },
+      "devops": {
+        "title": "From code to production",
+        "desc": "Deployment and monitoring with Docker, Portainer and Jenkins on Linux."
+      },
+      "ai": {
+        "title": "AI built in",
+        "desc": "LLMs, MCP and AI agents built into development workflows."
+      }
     }
   },
   "About": {
@@ -33,19 +51,21 @@
     "philTitle": "TECH_PHILOSOPHY",
     "philDesc": "I believe in clean, tested, and maintainable code. Architecture should not be an obstacle to speed, but rather the engine of controlled scalability. Permanent focus on performance (Core Web Vitals) and accessibility.",
     "journeyTitle": "MY JOURNEY_LOG",
-    "journeyDesc1": "Passionate about computer science from a young age, I quickly oriented my path towards modern web development. My time at INNO-SOFT allowed me to understand the critical challenges of large-scale e-commerce.",
-    "journeyDesc2": "Today at Londo Technology, I push the boundaries of TypeScript and Full-Stack architecture to build robust solutions that meet the strictest industry standards.",
+    "journeyDesc1": "After a two-year degree in computer science (IUT de Ngaoundéré, 2021), I started at Inno-Soft in Bertoua, building web applications with React.js and PHP while teaching web development to students.",
+    "journeyDesc2": "Since October 2024, I've been an IT consultant and Full Stack & AI developer at Londo Technology in Douala, working on banking and industrial projects in production.",
     "bio": {
-      "hello": "Hello!",
-      "intro": "My name is Fidèle Loffou, a Full-Stack Web Developer passionate about creating high-precision digital solutions.",
-      "detail1": "Anchored in a culture of technical excellence, I support my clients towards robust architectures and exceptional interfaces.",
-      "detail2": "Expertise forged within demanding ecosystems like INNO-SOFT and Londo Technology."
+      "intro": "I'm Fidèle Loffou, a Full Stack developer & AI engineer. I build web and mobile applications and REST APIs for banking and industry.",
+      "detail1": "At Londo Technology, I develop and maintain production systems for BCI Congo, Ecobank, Cimencam and Cadyst Group: digital banking, order management, logistics and sales force automation.",
+      "detail2": "I work with Java / Spring Boot, NestJS, React and Angular, deploy with Docker on Linux, and bring AI (LLMs, MCP, agents) into my development workflows."
     },
     "stats": {
-      "years": "YEARS OF EXP",
-      "projects": "PROJECTS_DELIVERED",
-      "tech": "TECH_EXPERTISE"
-    }
+      "years": "Years of experience",
+      "live": "Platforms in production",
+      "clients": "Enterprise clients"
+    },
+    "status": "Open to opportunities",
+    "contact": "Get in touch",
+    "cv": "Download my CV"
   },
   "Skills": {
     "title": "TECHNICAL ARSENAL",
@@ -70,6 +90,28 @@
         "title": "TOOLS_DEV_OPS",
         "desc": "Automation, continuous deployment, and isolated development environments for maximum productivity."
       }
+    },
+    "groups": {
+      "backend": {
+        "title": "Backend & API",
+        "desc": "Java / Spring Boot and Node.js / NestJS: REST APIs, business services, authentication and authorization (JWT)."
+      },
+      "frontend": {
+        "title": "Frontend",
+        "desc": "Responsive web and mobile interfaces with React, Angular and Next.js; mobile apps with Ionic and React Native."
+      },
+      "data": {
+        "title": "Databases",
+        "desc": "Relational and NoSQL data modeling and operations, caching with Redis."
+      },
+      "devops": {
+        "title": "DevOps & tooling",
+        "desc": "Containerization with Docker, monitoring with Portainer, CI with Jenkins, Linux deployments."
+      },
+      "ai": {
+        "title": "AI & assisted development",
+        "desc": "LLMs, MCP and AI agents built into development workflows to automate and speed up delivery."
+      }
     }
   },
   "Experience": {
@@ -79,21 +121,20 @@
     "stackTitle": "TECH STACK_",
     "present": "PRESENT",
     "londo": {
-      "desc": "Development and maintenance of high-performance web and mobile applications.",
+      "desc": "Development and maintenance of web, mobile and REST API applications for banking and industrial clients.",
       "highlights": [
-        "Design and optimization of APIs to improve service responsiveness.",
-        "Implementation of unit and functional tests to ensure software quality.",
-        "Continuous improvement of development processes within the technical team.",
-        "Code review and technical mentorship."
+        "New features and fixes on BCINET and BCI Online; business solutions for Cimencam-SFA, MyCIMENCAM and Click-Cadyst.",
+        "Built with Angular, TypeScript, Ionic, NestJS, Node.js, SQL, MongoDB and Redis.",
+        "Bug fixing, functional enhancements and application performance improvements.",
+        "Deployment and monitoring of applications with Docker and Portainer."
       ]
     },
     "inno": {
-      "desc": "Project Manager and Trainer specializing in web and e-learning solutions.",
+      "desc": "End-to-end web application development and web development training for students.",
       "highlights": [
-        "Management of a school report management system development.",
-        "Analysis and design of tailored e-learning platforms and showcase sites.",
-        "Training teams on modern tech stacks and digital tools.",
-        "Agile project management using Scrum."
+        "Built end-to-end web applications with React.js, PHP and relational databases.",
+        "Designed and integrated frontend and backend features.",
+        "Trained and mentored students in web development."
       ]
     },
     "minpostel": {
@@ -104,10 +145,15 @@
       ]
     },
     "roles": {
-      "fullstack": "Full-Stack Web Developer",
-      "trainer": "Full-Stack Developer / Trainer",
-      "intern": "Intern"
-    }
+      "londo": "IT Consultant / Full Stack & AI Developer",
+      "inno": "Full Stack Web Developer",
+      "minpostel": "Developer intern"
+    },
+    "current": "Current",
+    "clients": "Clients served",
+    "seeProjects": "See delivered projects",
+    "previous": "Previous experience",
+    "viewFull": "See full career"
   },
   "Projects": {
     "title": "ENGINEERING SHOWCASE",
@@ -148,14 +194,34 @@
       },
       "cimencam": {
         "title": "CIMENCAM SFA",
-        "role": "Senior Full-Stack Developer — SFA",
+        "role": "IT Consultant / Full Stack Developer — SFA",
         "desc": "Sales Force Automation platform for Cimencam. Digital transformation of the industrial distribution and sales tracking process.",
         "context": "Cimencam, the leader in the cement industry in Cameroon, wanted to modernize the tracking of its sales operations in the field.",
         "problem": "Manual sales tracking, lack of real-time visibility on agent performance, and tedious reporting processes.",
         "solution": "Development of a robust SFA web application for real-time order tracking, customer portfolio management, and advanced performance analytics.",
         "results": []
       }
-    }
+    },
+    "featured": "Featured",
+    "live": "Live",
+    "visitSite": "Visit site",
+    "viewAll": "See all {count} projects",
+    "viewDetails": "View details",
+    "previous": "Previous project",
+    "next": "Next project",
+    "notFound": "Project not found",
+    "backToProjects": "All projects",
+    "stack": "Tech stack",
+    "website": "Website",
+    "sectors": {
+      "all": "All",
+      "banking": "Banking & Fintech",
+      "industry": "Industry & Distribution",
+      "ecommerce": "E-commerce"
+    },
+    "internal": "Internal tool",
+    "access": "Access",
+    "internalNote": "Client's internal tool, in production. Access is restricted to their teams, so no public link."
   },
   "Search": {
     "placeholder": "Search projects, skills...",
@@ -190,7 +256,6 @@
     "footerNote": "These settings persist in LocalStorage"
   },
   "Contact": {
-
     "title": "GET IN TOUCH",
     "headerPrefix": "GET IN",
     "headerAccent": "TOUCH",
@@ -214,5 +279,37 @@
   "Footer": {
     "tagline": "Building the future, one line of code at a time.",
     "rights": "All rights reserved."
+  },
+  "Activity": {
+    "title": "DEVELOPMENT ACTIVITY",
+    "loading": "Loading activity",
+    "unavailable": "Activity is temporarily unavailable. See my work on",
+    "stats": {
+      "total": "Contributions in 12 months",
+      "activeDays": "Active days",
+      "streak": "Longest streak",
+      "repos": "Public repositories",
+      "days": "{count, plural, one {# day} other {# days}}"
+    },
+    "calendarLabel": "Activity calendar: {total} contributions over {days} active days in the last 12 months.",
+    "tooltip": {
+      "total": "{count, plural, =0 {No contributions} one {# contribution} other {# contributions}}",
+      "split": "{local} work (Bitbucket) · {github} GitHub"
+    },
+    "source": "Sources: GitHub (Djsk-f) and commits from professional Bitbucket repositories, as daily totals — updated {date}.",
+    "less": "Less",
+    "more": "More",
+    "noDescription": "No description",
+    "updated": "Updated {date}",
+    "profile": "View my GitHub profile"
+  },
+  "Linkedin": {
+    "title": "LINKEDIN POSTS",
+    "placeholder": "LinkedIn post — click “Show posts” to read it here.",
+    "load": "Show posts",
+    "open": "Open on LinkedIn",
+    "profile": "See all my posts",
+    "embedTitle": "LinkedIn post from {date}",
+    "privacy": "Posts are loaded from LinkedIn only after you click."
   }
 }

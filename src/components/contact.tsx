@@ -3,16 +3,17 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { GITHUB_URL, LINKEDIN_URL } from "@/lib/profiles";
 
 export default function Contact() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("Footer");
 
   const socialLinks = [
-    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/fid%C3%A8le-l%C3%A9vi-kounga-loffou-657a7623b/", label: "LinkedIn" },
-    { icon: <FaGithub />, href: "https://github.com/Djsk-f", label: "GitHub" },
+    { icon: <FaLinkedin />, href: LINKEDIN_URL, label: "LinkedIn" },
+    { icon: <FaGithub />, href: GITHUB_URL, label: "GitHub" },
     { icon: <FaTwitter />, href: "https://twitter.com/fidele-loffou", label: "Twitter" },
-    { icon: <FaEnvelope />, href: "mailto:contact@fideleloffou.com", label: "Email" },
+    { icon: <FaEnvelope />, href: "mailto:koungafidele@gmail.com", label: "Email" },
   ];
 
   return (

@@ -2,27 +2,22 @@
 
 import { Briefcase, Calendar, Target } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { experiences, formatPeriod } from "../../mocks/experience.mock";
 
 export default function ExperiencePage() {
   const t = useTranslations("Experience");
 
-  const detailedExperiences = [
-    {
-      company: "Londo Technology",
-      role: "Full-Stack Developer",
-      period: `2023 - ${t("present")}`,
-      highlights: t.raw("londo.highlights") as string[],
-      tech: ["NestJS", "Next.js", "PostgreSQL", "Docker", "AWS"]
-    },
-    {
-      company: "INNO-SOFT",
-      role: "Full-Stack Developer",
-      period: "2021 - 2023",
-      highlights: t.raw("inno.highlights") as string[],
-      tech: ["React", "Node.js", "Express", "MongoDB", "Redux"]
-    }
-  ];
+  const locale = useLocale();
+  const detailedExperiences = experiences
+    .filter(exp => exp.tech.length > 0)
+    .map(exp => ({
+      company: exp.location ? `${exp.company} — ${exp.location}` : exp.company,
+      role: t(`roles.${exp.id}`),
+      period: formatPeriod(exp, locale, t("present")),
+      highlights: t.raw(`${exp.id}.highlights`) as string[],
+      tech: exp.tech,
+    }));
 
   return (
     <div className="experience-page">
